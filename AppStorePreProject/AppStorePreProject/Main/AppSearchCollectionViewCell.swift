@@ -27,6 +27,7 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet var screenShotSecondImageView: UIImageView!
     @IBOutlet var screenShotThirdImageView: UIImageView!
     
+    var isDownload = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,6 +49,8 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
         screenShotSecondImageView.layer.cornerRadius = 20
         screenShotThirdImageView.clipsToBounds = true
         screenShotThirdImageView.layer.cornerRadius = 20
+        
+        isDownload = false
         
         let countString = "4.5"
         switch countString {
@@ -127,6 +130,26 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
                 starThreeImageView.image = UIImage(named: "star_empty")
                 starFourImageView.image = UIImage(named: "star_empty")
                 starFiveImageView.image = UIImage(named: "star_empty")
+        }
+        
+    }
+    
+    
+    @IBAction func downloadButtonAction(_ sender: UIButton) {
+        
+        if isDownload {
+            downloadButton.setTitle("열기", for: .normal)
+            downloadButton.setTitleColor(RowColorAsset.subBackgroundColor.load(), for: .normal)
+            
+            downloadButton.backgroundColor = RowColorAsset.pointBlueColor.load()
+            isDownload = false
+            
+        } else {
+            downloadButton.setTitle("받기", for: .normal)
+            downloadButton.setTitleColor(RowColorAsset.pointBlueColor.load(), for: .normal)
+            
+            downloadButton.backgroundColor = RowColorAsset.subBackgroundColor.load()
+            isDownload = true
         }
         
     }

@@ -90,6 +90,9 @@
                             <state key="normal" title="받기">
                                 <color key="titleColor" name="pointBlueColor"/>
                             </state>
+                            <connections>
+                                <action selector="downloadButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Etu-iz-I2V"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -138,6 +138,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         , forCellWithReuseIdentifier: "appSearchCollectionViewCell")
     }
     
+    // collectionView cell count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
@@ -155,6 +156,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let width = view.bounds.width
         return CGSize(width: width, height: 400)
 
+    }
+    
+    // collectionView cell select
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        let detailView = storyboard.instantiateViewController(withIdentifier: "DetailViewController")
+        detailView.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        
+        self.presentDetail(detailView)
     }
 
 
