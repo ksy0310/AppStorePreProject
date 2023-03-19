@@ -19,6 +19,8 @@
 		0CB97C9029C6EA0F0052A580 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C8F29C6EA0F0052A580 /* MainViewController.swift */; };
 		0CB97C9529C6ED4C0052A580 /* ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C9429C6ED4C0052A580 /* ColorAssets.swift */; };
 		0CB97C9729C6EEAD0052A580 /* RawColorAssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C9629C6EEAD0052A580 /* RawColorAssetTest.swift */; };
+		0CB97C9929C71BBF0052A580 /* AppSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97C9829C71BBF0052A580 /* AppSearchCollectionViewCell.xib */; };
+		0CB97C9B29C7214A0052A580 /* AppSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C9A29C7214A0052A580 /* AppSearchCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		0CB97C8F29C6EA0F0052A580 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0CB97C9429C6ED4C0052A580 /* ColorAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssets.swift; sourceTree = "<group>"; };
 		0CB97C9629C6EEAD0052A580 /* RawColorAssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawColorAssetTest.swift; sourceTree = "<group>"; };
+		0CB97C9829C71BBF0052A580 /* AppSearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppSearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		0CB97C9A29C7214A0052A580 /* AppSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				0CB97C8F29C6EA0F0052A580 /* MainViewController.swift */,
+				0CB97C9829C71BBF0052A580 /* AppSearchCollectionViewCell.xib */,
+				0CB97C9A29C7214A0052A580 /* AppSearchCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 			files = (
 				0CB97C6B29C6E0940052A580 /* LaunchScreen.storyboard in Resources */,
 				0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */,
+				0CB97C9929C71BBF0052A580 /* AppSearchCollectionViewCell.xib in Resources */,
 				0CB97C6329C6E0920052A580 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +310,7 @@
 				0CB97C5E29C6E0920052A580 /* SceneDelegate.swift in Sources */,
 				0CB97C6629C6E0920052A580 /* AppStorePreProject.xcdatamodeld in Sources */,
 				0CB97C9529C6ED4C0052A580 /* ColorAssets.swift in Sources */,
+				0CB97C9B29C7214A0052A580 /* AppSearchCollectionViewCell.swift in Sources */,
 				0CB97C9029C6EA0F0052A580 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

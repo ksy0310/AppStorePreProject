@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -158,14 +159,50 @@
                                     <constraint firstAttribute="trailing" secondItem="RAO-we-O86" secondAttribute="trailing" id="y9R-M0-oGR"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bh-rz-q5n">
+                                <rect key="frame" x="0.0" y="209" width="393" height="609"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tgw-V0-4pB">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="609"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JT6-yV-4jh">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MBx-Dt-zxp">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yxl-Zx-dgx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Tgw-V0-4pB" secondAttribute="bottom" id="30W-Hl-VR8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tgw-V0-4pB" secondAttribute="trailing" id="Rxj-dn-daX"/>
+                                    <constraint firstItem="Tgw-V0-4pB" firstAttribute="leading" secondItem="1bh-rz-q5n" secondAttribute="leading" id="r4G-Cm-OEU"/>
+                                    <constraint firstItem="Tgw-V0-4pB" firstAttribute="top" secondItem="1bh-rz-q5n" secondAttribute="top" id="z4b-Zp-L9I"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1bh-rz-q5n" firstAttribute="top" secondItem="ELu-h2-pIP" secondAttribute="bottom" id="7cB-nc-Z5r"/>
                             <constraint firstItem="zLG-YJ-iej" firstAttribute="top" secondItem="ELu-h2-pIP" secondAttribute="bottom" id="BgI-di-E2f"/>
                             <constraint firstItem="zLG-YJ-iej" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bia-fA-03t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ELu-h2-pIP" secondAttribute="trailing" id="D2O-ke-owC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zLG-YJ-iej" secondAttribute="bottom" id="GWg-xg-IjV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1bh-rz-q5n" secondAttribute="trailing" id="JOe-48-UON"/>
+                            <constraint firstItem="1bh-rz-q5n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O3v-76-Qin"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1bh-rz-q5n" secondAttribute="bottom" id="agD-ZK-FeE"/>
                             <constraint firstItem="WvP-s0-xpQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gkT-xH-FnO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zLG-YJ-iej" secondAttribute="trailing" id="gsh-rX-wcs"/>
                             <constraint firstItem="WvP-s0-xpQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kzy-hm-f9K"/>
@@ -175,8 +212,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appSearchResultView" destination="1bh-rz-q5n" id="5qR-49-Ak0"/>
+                        <outlet property="collectionView" destination="Tgw-V0-4pB" id="s0n-bc-kXx"/>
                         <outlet property="deleteButtonConstraintWidth" destination="2XG-if-mtl" id="TcF-Op-JJt"/>
                         <outlet property="profileButton" destination="lYZ-5a-rRs" id="GED-tF-lzb"/>
+                        <outlet property="recentSearchView" destination="zLG-YJ-iej" id="67S-gI-Y4z"/>
                         <outlet property="searchTextField" destination="553-U7-33j" id="B5T-E9-pph"/>
                         <outlet property="searchTilteViewConstraintHeight" destination="kpH-Pd-EfZ" id="6Cq-GN-0KK"/>
                         <outlet property="searchTitleView" destination="WvP-s0-xpQ" id="PJv-1c-nvV"/>

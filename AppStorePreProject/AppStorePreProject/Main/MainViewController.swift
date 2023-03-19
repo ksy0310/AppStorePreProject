@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    // titleView
     @IBOutlet var profileButton: UIButton!
     @IBOutlet var searchTitleView: UIView!
     @IBOutlet var searchView: UIView!
@@ -16,11 +17,18 @@ class MainViewController: UIViewController {
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var deleteButtonConstraintWidth: NSLayoutConstraint!
     
+    // containerView
+    @IBOutlet var recentSearchView: UIView!
+    @IBOutlet var appSearchResultView: UIView!
+    @IBOutlet var collectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
         configuereSearch()
+        configureCollectionView()
     }
 
     // 검색 화면 구성
@@ -38,6 +46,9 @@ class MainViewController: UIViewController {
         searchTextField.returnKeyType = .search
         searchView.clipsToBounds = true
         searchView.layer.cornerRadius = 10
+        
+        recentSearchView.isHidden = false
+        appSearchResultView.isHidden = true
     }
     
     // action - 취소 버튼
@@ -45,8 +56,7 @@ class MainViewController: UIViewController {
         // 취소버튼 클릭 -> searchTitleview height 100 (anim)
         //           -> textField ""
         //           -> 취소버튼 사라지기 (anim)
-        searchTextField.resignFirstResponder()
-        searchTextField.text = ""
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.searchTilteViewConstraintHeight.constant = 100
             self.deleteButtonConstraintWidth.constant = 0
@@ -55,6 +65,12 @@ class MainViewController: UIViewController {
         }, completion: { finished in
             self.searchTitleView.isHidden = false
         })
+        
+        searchTextField.resignFirstResponder()
+        searchTextField.text = ""
+        
+        recentSearchView.isHidden = false
+        appSearchResultView.isHidden = true
     }
     
     // action - 검색 필드
@@ -63,13 +79,15 @@ class MainViewController: UIViewController {
         //               -> 취소버튼 보이기
         //               -> 키보드 올라오기
         
-        searchTextField.becomeFirstResponder()
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.searchTilteViewConstraintHeight.constant = 0
             self.deleteButtonConstraintWidth.constant = 55
             self.searchTitleView.isHidden = true
             self.view.layoutIfNeeded()
         })
+        
+        searchTextField.becomeFirstResponder()
     }
     
     // action - 프로필 버튼
@@ -96,7 +114,8 @@ extension MainViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         
         if textField.text != nil {
-            
+            recentSearchView.isHidden = true
+            appSearchResultView.isHidden = false
         }else{
             // 검색어가 없을때 알럿
             let alert = UIAlertController(title: "알림", message: "검색어를 입력하세요.", preferredStyle: UIAlertController.Style.alert)
@@ -106,4 +125,37 @@ extension MainViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+// collectionView
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func configureCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(UINib(nibName: "AppSearchCollectionViewCell", bundle: nil)
+        , forCellWithReuseIdentifier: "appSearchCollectionViewCell")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "appSearchCollectionViewCell", for: indexPath) as! AppSearchCollectionViewCell
+        
+         return cell
+    }
+    
+    // collectionView cell size
+    // UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = view.bounds.width
+        return CGSize(width: width, height: 400)
+
+    }
+
+
 }
