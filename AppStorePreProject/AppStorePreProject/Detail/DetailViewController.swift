@@ -21,9 +21,21 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var miniAppIconImageView: UIImageView!
     @IBOutlet var miniDownloadButton: UIButton!
     
-    
     @IBOutlet var screenShotCollectionView: UICollectionView!
     
+    @IBOutlet var navigationView: UIView!
+    @IBOutlet var containerView: UIView!
+    
+    @IBOutlet var appTitleView: UIView!
+    
+    @IBOutlet var appSummaryView: UIView!
+    @IBOutlet var SummaryUserRatingCountView: UIView!
+    @IBOutlet var SummaryContentAdvisoryRatingView: UIView!
+    @IBOutlet var SummaryGenresView: UIView!
+    @IBOutlet var SummarySellerNameView: UIView!
+    @IBOutlet var SummaryLanguageCodesView: UIView!
+    
+    @IBOutlet var appScreenShotView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
