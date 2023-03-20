@@ -24,6 +24,8 @@
 		0CB97C9F29C736C80052A580 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C9E29C736C80052A580 /* DetailViewController.swift */; };
 		0CB97CA129C737BE0052A580 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97CA029C737BE0052A580 /* Detail.storyboard */; };
 		0CB97CA329C743210052A580 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97CA229C743210052A580 /* Extensions.swift */; };
+		0CB97CA529C74FF30052A580 /* ScreenShotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97CA429C74FF30052A580 /* ScreenShotCollectionViewCell.xib */; };
+		0CB97CA729C750660052A580 /* ScreenShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97CA629C750660052A580 /* ScreenShotCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		0CB97C9E29C736C80052A580 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0CB97CA029C737BE0052A580 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		0CB97CA229C743210052A580 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0CB97CA429C74FF30052A580 /* ScreenShotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenShotCollectionViewCell.xib; sourceTree = "<group>"; };
+		0CB97CA629C750660052A580 /* ScreenShotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 			children = (
 				0CB97C9E29C736C80052A580 /* DetailViewController.swift */,
 				0CB97CA029C737BE0052A580 /* Detail.storyboard */,
+				0CB97CA429C74FF30052A580 /* ScreenShotCollectionViewCell.xib */,
+				0CB97CA629C750660052A580 /* ScreenShotCollectionViewCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 			files = (
 				0CB97C6B29C6E0940052A580 /* LaunchScreen.storyboard in Resources */,
 				0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */,
+				0CB97CA529C74FF30052A580 /* ScreenShotCollectionViewCell.xib in Resources */,
 				0CB97C9929C71BBF0052A580 /* AppSearchCollectionViewCell.xib in Resources */,
 				0CB97CA129C737BE0052A580 /* Detail.storyboard in Resources */,
 				0CB97C6329C6E0920052A580 /* Main.storyboard in Resources */,
@@ -324,6 +331,7 @@
 				0CB97C9B29C7214A0052A580 /* AppSearchCollectionViewCell.swift in Sources */,
 				0CB97C9029C6EA0F0052A580 /* MainViewController.swift in Sources */,
 				0CB97C9F29C736C80052A580 /* DetailViewController.swift in Sources */,
+				0CB97CA729C750660052A580 /* ScreenShotCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
