@@ -29,11 +29,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var appTitleView: UIView!
     
     @IBOutlet var appSummaryView: UIView!
-    @IBOutlet var SummaryUserRatingCountView: UIView!
-    @IBOutlet var SummaryContentAdvisoryRatingView: UIView!
-    @IBOutlet var SummaryGenresView: UIView!
-    @IBOutlet var SummarySellerNameView: UIView!
-    @IBOutlet var SummaryLanguageCodesView: UIView!
+    @IBOutlet var summaryUserRatingCountView: UIView!
+    @IBOutlet var summaryContentAdvisoryRatingView: UIView!
+    @IBOutlet var summaryGenresView: UIView!
+    @IBOutlet var summarySellerNameView: UIView!
+    @IBOutlet var summaryLanguageCodesView: UIView!
     
     @IBOutlet var appScreenShotView: UIView!
     
@@ -45,12 +45,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var appSellerInfoView: UIView!
     
+    @IBOutlet var appInfoTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
         configureCollectionView()
+        configureTableView()
         setData()
     }
 
@@ -181,6 +183,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         screenShotCollectionView.register(UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
         , forCellWithReuseIdentifier: "screenShotCollectionViewCell")
+        
     }
     
     // collectionView cell count
@@ -202,6 +205,35 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: width, height: 430)
 
     }
+}
 
-
+// tableView
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func configureTableView() {
+        appInfoTableView.delegate = self
+        appInfoTableView.dataSource = self
+        
+        appInfoTableView.estimatedRowHeight = 50
+        appInfoTableView.rowHeight = UITableView.automaticDimension
+        
+        appInfoTableView.register(UINib(nibName: "AppInfoBasicTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoBasicTableViewCell")
+        appInfoTableView.register(UINib(nibName: "AppInfoLinkTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoLinkTableViewCell")
+        appInfoTableView.register(UINib(nibName: "AppInfoDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoDetailTableViewCell")
+        
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AppInfoDetailTableViewCell",for: indexPath) as! AppInfoDetailTableViewCell
+        
+        return cell
+    }
+    
+    
 }

@@ -88,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="719"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-Zd-jcV">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1226.3333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1316.3333333333333"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bc-SJ-MzM">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
@@ -597,9 +597,34 @@
                                                             <constraint firstItem="Kr5-6F-a7W" firstAttribute="top" secondItem="VLp-Ym-M3B" secondAttribute="top" constant="20" id="dwF-l7-glT"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWb-wZ-9QQ">
+                                                        <rect key="frame" x="0.0" y="892" width="393" height="40"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2x-vx-a42">
+                                                                <rect key="frame" x="20" y="8.6666666666666288" width="33" height="23"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                                <color key="textColor" name="mainTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="9br-YK-Z5f"/>
+                                                            <constraint firstItem="g2x-vx-a42" firstAttribute="leading" secondItem="RWb-wZ-9QQ" secondAttribute="leading" constant="20" id="nm5-1E-ZGB"/>
+                                                            <constraint firstItem="g2x-vx-a42" firstAttribute="centerY" secondItem="RWb-wZ-9QQ" secondAttribute="centerY" id="p3y-Sb-1My"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-Fc-Oqn">
+                                                        <rect key="frame" x="0.0" y="942.00000000000011" width="393" height="374.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="VLX-Fc-Oqn" firstAttribute="top" secondItem="RWb-wZ-9QQ" secondAttribute="bottom" constant="10" id="0fc-oP-yPE"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VLX-Fc-Oqn" secondAttribute="bottom" id="2pf-yZ-1Bd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RWb-wZ-9QQ" secondAttribute="trailing" id="7bc-WK-llX"/>
+                                                    <constraint firstItem="VLX-Fc-Oqn" firstAttribute="leading" secondItem="fQP-Zd-jcV" secondAttribute="leading" id="8QL-zI-6c2"/>
                                                     <constraint firstItem="0nV-La-mwc" firstAttribute="top" secondItem="1GM-3d-AFj" secondAttribute="bottom" id="9FA-tn-b3m"/>
                                                     <constraint firstItem="VLp-Ym-M3B" firstAttribute="top" secondItem="0nV-La-mwc" secondAttribute="bottom" id="BIQ-Xc-VLj"/>
                                                     <constraint firstItem="VLp-Ym-M3B" firstAttribute="leading" secondItem="fQP-Zd-jcV" secondAttribute="leading" id="Baa-hp-qDi"/>
@@ -610,13 +635,16 @@
                                                     <constraint firstAttribute="trailing" secondItem="bpv-J0-NqT" secondAttribute="trailing" id="TWQ-IR-GAt"/>
                                                     <constraint firstItem="bpv-J0-NqT" firstAttribute="leading" secondItem="fQP-Zd-jcV" secondAttribute="leading" id="USd-jP-kAq"/>
                                                     <constraint firstItem="2bc-SJ-MzM" firstAttribute="leading" secondItem="fQP-Zd-jcV" secondAttribute="leading" id="XLw-4f-yqG"/>
-                                                    <constraint firstAttribute="bottom" secondItem="K9e-vg-zii" secondAttribute="bottom" constant="10" id="Xgt-9P-Hb1"/>
+                                                    <constraint firstAttribute="bottom" secondItem="K9e-vg-zii" secondAttribute="bottom" constant="100" id="Xgt-9P-Hb1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VLX-Fc-Oqn" secondAttribute="trailing" id="cW4-Uu-6gM"/>
+                                                    <constraint firstItem="RWb-wZ-9QQ" firstAttribute="leading" secondItem="fQP-Zd-jcV" secondAttribute="leading" id="d9K-I8-lzM"/>
                                                     <constraint firstItem="1GM-3d-AFj" firstAttribute="top" secondItem="2bc-SJ-MzM" secondAttribute="bottom" id="df6-gV-gkY"/>
                                                     <constraint firstAttribute="trailing" secondItem="1GM-3d-AFj" secondAttribute="trailing" id="jxn-d4-NN2"/>
                                                     <constraint firstAttribute="trailing" secondItem="VLp-Ym-M3B" secondAttribute="trailing" id="l9m-B3-vJ4"/>
                                                     <constraint firstItem="1GM-3d-AFj" firstAttribute="leading" secondItem="fQP-Zd-jcV" secondAttribute="leading" id="mZY-pz-yak"/>
                                                     <constraint firstItem="K9e-vg-zii" firstAttribute="centerX" secondItem="fQP-Zd-jcV" secondAttribute="centerX" id="nTY-yy-bI6"/>
                                                     <constraint firstItem="2bc-SJ-MzM" firstAttribute="top" secondItem="fQP-Zd-jcV" secondAttribute="top" id="rXQ-w4-yNk"/>
+                                                    <constraint firstItem="RWb-wZ-9QQ" firstAttribute="top" secondItem="bpv-J0-NqT" secondAttribute="bottom" id="sXu-1i-TTZ"/>
                                                     <constraint firstItem="K9e-vg-zii" firstAttribute="top" secondItem="0nV-La-mwc" secondAttribute="bottom" constant="500" id="wnb-Bt-Xgu"/>
                                                 </constraints>
                                             </view>
@@ -655,17 +683,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="SummaryContentAdvisoryRatingView" destination="pGx-fg-rEn" id="L2b-fh-ewY"/>
-                        <outlet property="SummaryGenresView" destination="zMt-3g-CvF" id="8zP-On-1xa"/>
-                        <outlet property="SummaryLanguageCodesView" destination="TZA-D2-rp2" id="Dwt-8d-gpY"/>
-                        <outlet property="SummarySellerNameView" destination="yfw-dx-TWO" id="7KA-aI-ptF"/>
-                        <outlet property="SummaryUserRatingCountView" destination="Dy1-cG-X5Z" id="8GA-rK-UKj"/>
                         <outlet property="appDescriptionLabel" destination="FiO-Nf-ZQ5" id="fkY-4e-pe4"/>
                         <outlet property="appIconImageView" destination="MQn-UY-eBB" id="o5V-Z6-wJg"/>
                         <outlet property="appInfoDescriptionButton" destination="R3K-TF-zMg" id="qom-6t-LQM"/>
                         <outlet property="appInfoDescriptionLabel" destination="Kr5-6F-a7W" id="Y7s-Zz-2fK"/>
                         <outlet property="appInfoDescriptionView" destination="VLp-Ym-M3B" id="DqO-7T-baK"/>
                         <outlet property="appInfoDescriptionViewConstraintHeight" destination="ClR-TY-icj" id="nO7-Dg-2D9"/>
+                        <outlet property="appInfoTableView" destination="VLX-Fc-Oqn" id="LPo-cw-iiT"/>
                         <outlet property="appNameLabel" destination="3W3-Ow-kHt" id="3Po-mQ-cjL"/>
                         <outlet property="appScreenShotView" destination="0nV-La-mwc" id="d1u-aa-7OI"/>
                         <outlet property="appSellerInfoView" destination="bpv-J0-NqT" id="iQs-2d-fTc"/>
@@ -678,6 +702,11 @@
                         <outlet property="miniDownloadButton" destination="Vq3-wn-dtS" id="l56-3G-nUh"/>
                         <outlet property="navigationView" destination="Fsl-ks-vnX" id="YFw-Ac-30f"/>
                         <outlet property="screenShotCollectionView" destination="3vm-15-Ia7" id="cMz-2F-0tk"/>
+                        <outlet property="summaryContentAdvisoryRatingView" destination="pGx-fg-rEn" id="ZAG-m2-07t"/>
+                        <outlet property="summaryGenresView" destination="zMt-3g-CvF" id="hju-dN-KgK"/>
+                        <outlet property="summaryLanguageCodesView" destination="TZA-D2-rp2" id="slt-Z9-M0T"/>
+                        <outlet property="summarySellerNameView" destination="yfw-dx-TWO" id="kvt-zN-JBW"/>
+                        <outlet property="summaryUserRatingCountView" destination="Dy1-cG-X5Z" id="svW-AL-RKE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -693,7 +722,7 @@
         <image name="square" width="128" height="128"/>
         <image name="star" width="128" height="128"/>
         <namedColor name="mainTextColor">
-            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="pointBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
