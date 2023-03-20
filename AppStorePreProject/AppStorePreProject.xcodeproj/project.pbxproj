@@ -13,6 +13,7 @@
 		0C685BDA29C84D01000BA32F /* AppInfoLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */; };
 		0C685BDD29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */; };
 		0C685BDE29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */; };
+		0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */; };
 		0CB97C5C29C6E0920052A580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C5B29C6E0920052A580 /* AppDelegate.swift */; };
 		0CB97C5E29C6E0920052A580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C5D29C6E0920052A580 /* SceneDelegate.swift */; };
 		0CB97C6329C6E0920052A580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97C6129C6E0920052A580 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoLinkTableViewCell.xib; sourceTree = "<group>"; };
 		0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoDetailTableViewCell.xib; sourceTree = "<group>"; };
+		0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0CB97C5829C6E0920052A580 /* AppStorePreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStorePreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB97C5B29C6E0920052A580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CB97C5D29C6E0920052A580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */,
 				0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */,
 				0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */,
+				0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				0CB97C9529C6ED4C0052A580 /* ColorAssets.swift in Sources */,
 				0CB97C9B29C7214A0052A580 /* AppSearchCollectionViewCell.swift in Sources */,
 				0C685BD929C84D01000BA32F /* AppInfoLinkTableViewCell.swift in Sources */,
+				0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */,
 				0CB97C9029C6EA0F0052A580 /* MainViewController.swift in Sources */,
 				0CB97C9F29C736C80052A580 /* DetailViewController.swift in Sources */,
 				0CB97CA729C750660052A580 /* ScreenShotCollectionViewCell.swift in Sources */,
