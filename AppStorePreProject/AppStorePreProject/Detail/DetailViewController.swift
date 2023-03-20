@@ -37,11 +37,21 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var appScreenShotView: UIView!
     
+    @IBOutlet var appInfoDescriptionViewConstraintHeight: NSLayoutConstraint!
+    @IBOutlet var appInfoDescriptionView: UIView!
+    @IBOutlet var appInfoDescriptionLabel: UILabel!
+    @IBOutlet var appInfoDescriptionButton: UIButton!
+    var isDescriptionOpenView = false
+    
+    @IBOutlet var appSellerInfoView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
         configureCollectionView()
+        setData()
     }
 
     // 디테일 화면 구성
@@ -51,6 +61,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         miniAppIconImageView.isHidden = true
         miniDownloadButton.isHidden = true
         
+        isDownload = false
         appIconImageView.clipsToBounds = true
         appIconImageView.layer.cornerRadius = 20
         miniAppIconImageView.clipsToBounds = true
@@ -59,7 +70,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         downloadButton.layer.cornerRadius = 15
         miniDownloadButton.clipsToBounds = true
         miniDownloadButton.layer.cornerRadius = 15
+        
+        isDescriptionOpenView = false
+        appInfoDescriptionViewConstraintHeight.constant = 130
+
     }
+    
+    private func setData() {
+        
+        appInfoDescriptionLabel.frame.size = appInfoDescriptionLabel.intrinsicContentSize
+        appInfoDescriptionLabel.sizeToFit()
+        appInfoDescriptionLabel.text = "앱설명"
+        if appInfoDescriptionLabel.frame.height < 130 {
+            appInfoDescriptionButton.isHidden = true
+        }
+    }
+    
     
     // action - backButton
     @IBAction func backButtonAction(_ sender: UIButton) {
@@ -112,6 +138,24 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
     }
+    
+    // 앱 설명 더보기/ 접기
+    @IBAction func appInfoDescriptionButtonAction(_ sender: UIButton) {
+        
+        if isDescriptionOpenView {
+            appInfoDescriptionViewConstraintHeight.constant = 130
+            appInfoDescriptionButton.setTitle("더보기", for: .normal)
+            isDescriptionOpenView = false
+        } else {
+            appInfoDescriptionViewConstraintHeight.constant = appInfoDescriptionLabel.frame.height
+            appInfoDescriptionButton.setTitle("접기", for: .normal)
+            isDescriptionOpenView = true
+        }
+        
+    }
+    
+    
+    
     
     // 메인 스크롤 위치에 따른 mini view
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
