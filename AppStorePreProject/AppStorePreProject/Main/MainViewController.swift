@@ -94,7 +94,7 @@ class MainViewController: UIViewController {
     
     // action - 프로필 버튼
     @objc func profileImageViewAction(sender: UIButton!) {
-        popupView.showAlert(message: "안녕하세요!\n개발자 : 김소영\nE-mail : ksy0310007@naver.com\nblog : https://dev-sso.tistory.com/", alertType: .profileAlert)
+        popupView.showAlert(message: "안녕하세요!\nName : 김소영\nE-mail : ksy0310007@naver.com\nblog : https://dev-sso.tistory.com/", alertType: .profileAlert)
     }
     
 }

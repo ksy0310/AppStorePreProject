@@ -66,6 +66,7 @@ class AppUserRatingCountView: UIView {
         graphOneRatingView.clipsToBounds = true
         graphOneRatingView.layer.cornerRadius = 5
         
+        
     }
 
     // 별점 데이터-그래프 UI

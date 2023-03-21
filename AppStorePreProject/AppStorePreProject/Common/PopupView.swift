@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Lottie
 
-protocol PopupViewDelegate: class {
+protocol PopupViewDelegate: AnyObject {
     func onOkButtonAction()
 }
 
@@ -17,10 +18,12 @@ class PopupView: UIView {
     @IBOutlet var parentView: UIView!
     @IBOutlet var popupView: UIView!
     
-    @IBOutlet var messageImageView: UIImageView!
+    @IBOutlet var animationView: UIView!
     @IBOutlet var messageLabel: UILabel!
     
     @IBOutlet var okButton: UIButton!
+    
+    @IBOutlet var popupViewConstraintHeight: NSLayoutConstraint!
     
     enum AlertType {
         case profileAlert
@@ -54,8 +57,6 @@ class PopupView: UIView {
         okButton.layer.masksToBounds = true
         okButton.layer.cornerRadius = 5
         
-        messageImageView.layer.masksToBounds = true
-        messageImageView.layer.cornerRadius = 35
     }
     
 
@@ -65,11 +66,25 @@ class PopupView: UIView {
         
         switch alertType {
         case .profileAlert:
-            messageImageView.isHidden = false
-            messageImageView.image = UIImage(named: "account")
+            popupViewConstraintHeight.constant = 330
+            
+            let lottieView = LottieAnimationView(name: "profile")
+            lottieView.frame = CGRect(x: 0, y: 0, width: animationView.frame.width, height: animationView.frame.height)
+            lottieView.contentMode = .scaleAspectFill
+            lottieView.loopMode = .loop
+            animationView.addSubview(lottieView)
+            lottieView.play()
+            
         case .notiAlert:
-            messageImageView.isHidden = false
-            messageImageView.image = UIImage(named: "bluestar")
+            popupViewConstraintHeight.constant = 250
+            
+            let lottieView = LottieAnimationView(name: "star")
+            lottieView.frame = CGRect(x: 0, y: 0, width: animationView.frame.width, height: animationView.frame.height)
+            lottieView.contentMode = .scaleAspectFill
+            lottieView.loopMode = .loop
+            animationView.addSubview(lottieView)
+            lottieView.play()
+            
         }
         
         UIApplication.shared.keyWindow?.addSubview(parentView)

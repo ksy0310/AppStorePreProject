@@ -10,11 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopupView" customModule="AppStorePreProject" customModuleProvider="target">
             <connections>
-                <outlet property="messageImageView" destination="Fg0-n3-KXM" id="GOI-Nt-Fox"/>
+                <outlet property="animationView" destination="1EQ-HU-mwo" id="3Pk-lG-ydP"/>
                 <outlet property="messageLabel" destination="pZr-J7-OZa" id="swi-ad-rxI"/>
                 <outlet property="okButton" destination="QAV-9O-f7n" id="dNs-BH-vX7"/>
                 <outlet property="parentView" destination="iN0-l3-epB" id="3zs-kz-n5P"/>
                 <outlet property="popupView" destination="UOC-5M-wce" id="mYv-md-1Ye"/>
+                <outlet property="popupViewConstraintHeight" destination="5xe-zO-jka" id="Ni8-Md-8ga"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,11 +27,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOC-5M-wce">
-                            <rect key="frame" x="76.666666666666686" y="276" width="240" height="300"/>
+                            <rect key="frame" x="76.666666666666686" y="261" width="240" height="330"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAV-9O-f7n">
-                                    <rect key="frame" x="69.999999999999986" y="250" width="100.00000000000001" height="30"/>
-                                    <color key="backgroundColor" name="pointBlueColor"/>
+                                    <rect key="frame" x="69.999999999999986" y="280" width="100.00000000000001" height="30"/>
+                                    <color key="backgroundColor" name="mainTextColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Fng-ez-4H6"/>
                                         <constraint firstAttribute="width" constant="100" id="RWl-dM-0sP"/>
@@ -43,31 +44,32 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텍스트 입력" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZr-J7-OZa">
-                                    <rect key="frame" x="20" y="110" width="200" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <rect key="frame" x="20" y="140" width="200" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <color key="textColor" name="subTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fg0-n3-KXM">
-                                    <rect key="frame" x="84.999999999999986" y="20" width="70.000000000000014" height="70"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-HU-mwo">
+                                    <rect key="frame" x="20" y="20" width="200" height="100"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="Fg0-n3-KXM" secondAttribute="height" multiplier="1:1" id="iDE-wm-7lw"/>
-                                        <constraint firstAttribute="width" constant="70" id="oJq-Ma-wWq"/>
+                                        <constraint firstAttribute="height" constant="100" id="mR0-iy-Ayk"/>
                                     </constraints>
-                                </imageView>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="0.79593703920478065" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="300" id="5xe-zO-jka"/>
+                                <constraint firstAttribute="height" constant="330" id="5xe-zO-jka"/>
                                 <constraint firstAttribute="trailing" secondItem="pZr-J7-OZa" secondAttribute="trailing" constant="20" id="Cba-ze-Wje"/>
                                 <constraint firstAttribute="bottom" secondItem="QAV-9O-f7n" secondAttribute="bottom" constant="20" id="IAb-fQ-PHW"/>
                                 <constraint firstAttribute="width" constant="240" id="MQ2-Bh-nMd"/>
+                                <constraint firstItem="1EQ-HU-mwo" firstAttribute="leading" secondItem="UOC-5M-wce" secondAttribute="leading" constant="20" id="OOA-FQ-Iis"/>
                                 <constraint firstItem="QAV-9O-f7n" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pZr-J7-OZa" secondAttribute="bottom" constant="20" id="RMd-fg-H5v"/>
-                                <constraint firstItem="pZr-J7-OZa" firstAttribute="top" secondItem="Fg0-n3-KXM" secondAttribute="bottom" constant="20" id="duv-KI-NTL"/>
-                                <constraint firstItem="Fg0-n3-KXM" firstAttribute="top" secondItem="UOC-5M-wce" secondAttribute="top" constant="20" id="jW7-yh-ujF"/>
+                                <constraint firstItem="pZr-J7-OZa" firstAttribute="top" secondItem="1EQ-HU-mwo" secondAttribute="bottom" constant="20" id="lTy-r6-vZt"/>
                                 <constraint firstItem="QAV-9O-f7n" firstAttribute="centerX" secondItem="UOC-5M-wce" secondAttribute="centerX" id="mGP-Hd-ZWw"/>
                                 <constraint firstItem="pZr-J7-OZa" firstAttribute="leading" secondItem="UOC-5M-wce" secondAttribute="leading" constant="20" id="qwv-aB-U4h"/>
-                                <constraint firstItem="Fg0-n3-KXM" firstAttribute="centerX" secondItem="UOC-5M-wce" secondAttribute="centerX" id="xdD-xL-ZnX"/>
+                                <constraint firstItem="1EQ-HU-mwo" firstAttribute="top" secondItem="UOC-5M-wce" secondAttribute="top" constant="20" id="tHf-H2-A6H"/>
+                                <constraint firstAttribute="trailing" secondItem="1EQ-HU-mwo" secondAttribute="trailing" constant="20" id="uKD-se-dnK"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -86,12 +88,12 @@
                 <constraint firstAttribute="bottom" secondItem="3dM-ki-qSd" secondAttribute="bottom" id="zXk-Mp-dka"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="102" y="20"/>
+            <point key="canvasLocation" x="101.5267175572519" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="pointBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="mainTextColor">
+            <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="subTextColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

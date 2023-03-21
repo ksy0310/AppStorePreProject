@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C36B90129C9A4E4008BF283 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36B90029C9A4E4008BF283 /* Kingfisher */; };
+		0C36B90429C9A5AD008BF283 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36B90329C9A5AC008BF283 /* Alamofire */; };
+		0C36B90729C9A8CD008BF283 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36B90629C9A8CD008BF283 /* Lottie */; };
+		0C36B90D29C9B1EC008BF283 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C36B90B29C9B1EC008BF283 /* star.json */; };
+		0C36B90E29C9B1EC008BF283 /* profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C36B90C29C9B1EC008BF283 /* profile.json */; };
 		0C685BD529C84A6F000BA32F /* AppInfoBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */; };
 		0C685BD629C84A6F000BA32F /* AppInfoBasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */; };
 		0C685BD929C84D01000BA32F /* AppInfoLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */; };
@@ -57,12 +62,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2EF4FA29C9A2160003CEBD /* iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOS; path = Carthage/Build/iOS; sourceTree = "<group>"; };
+		0C2EF4FB29C9A2300003CEBD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		0C36B90B29C9B1EC008BF283 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../../Desktop/appstore_icon/star.json; sourceTree = "<group>"; };
+		0C36B90C29C9B1EC008BF283 /* profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = profile.json; path = ../../../../../Desktop/appstore_icon/profile.json; sourceTree = "<group>"; };
 		0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoBasicTableViewCell.swift; sourceTree = "<group>"; };
 		0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoBasicTableViewCell.xib; sourceTree = "<group>"; };
 		0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLinkTableViewCell.swift; sourceTree = "<group>"; };
 		0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoLinkTableViewCell.xib; sourceTree = "<group>"; };
 		0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoDetailTableViewCell.xib; sourceTree = "<group>"; };
+		0CA4578629C99342000AA9D3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserRatingCountView.swift; sourceTree = "<group>"; };
 		0CB8CE6A29C86443002FF3A3 /* AppUserRatingCountView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUserRatingCountView.xib; sourceTree = "<group>"; };
@@ -98,6 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C36B90129C9A4E4008BF283 /* Kingfisher in Frameworks */,
+				0C36B90429C9A5AD008BF283 /* Alamofire in Frameworks */,
+				0C36B90729C9A8CD008BF283 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +131,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C36B90A29C9B1BB008BF283 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				0C36B90C29C9B1EC008BF283 /* profile.json */,
+				0C36B90B29C9B1EC008BF283 /* star.json */,
+			);
+			path = animation;
+			sourceTree = "<group>";
+		};
+		0CA4578529C99342000AA9D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C2EF4FB29C9A2300003CEBD /* Kingfisher.framework */,
+				0C2EF4FA29C9A2160003CEBD /* iOS */,
+				0CA4578629C99342000AA9D3 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0CB97C4F29C6E0920052A580 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +157,7 @@
 				0CB97C7429C6E0950052A580 /* AppStorePreProjectTests */,
 				0CB97C7E29C6E0950052A580 /* AppStorePreProjectUITests */,
 				0CB97C5929C6E0920052A580 /* Products */,
+				0CA4578529C99342000AA9D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +219,7 @@
 		0CB97C9129C6EA830052A580 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0C36B90A29C9B1BB008BF283 /* animation */,
 				0CB97C9229C6EA920052A580 /* Network */,
 				0CB97C9429C6ED4C0052A580 /* ColorAssets.swift */,
 				0CB97CA229C743210052A580 /* Extensions.swift */,
@@ -232,12 +266,18 @@
 				0CB97C5429C6E0920052A580 /* Sources */,
 				0CB97C5529C6E0920052A580 /* Frameworks */,
 				0CB97C5629C6E0920052A580 /* Resources */,
+				0CA4578A29C99362000AA9D3 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AppStorePreProject;
+			packageProductDependencies = (
+				0C36B90029C9A4E4008BF283 /* Kingfisher */,
+				0C36B90329C9A5AC008BF283 /* Alamofire */,
+				0C36B90629C9A8CD008BF283 /* Lottie */,
+			);
 			productName = AppStorePreProject;
 			productReference = 0CB97C5829C6E0920052A580 /* AppStorePreProject.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +350,11 @@
 				Base,
 			);
 			mainGroup = 0CB97C4F29C6E0920052A580;
+			packageReferences = (
+				0C36B8FF29C9A4E4008BF283 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0C36B90229C9A5AC008BF283 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0C36B90529C9A8CD008BF283 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 0CB97C5929C6E0920052A580 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,12 +372,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C685BD629C84A6F000BA32F /* AppInfoBasicTableViewCell.xib in Resources */,
+				0C36B90E29C9B1EC008BF283 /* profile.json in Resources */,
 				0CB8CE6D29C97828002FF3A3 /* PopupView.xib in Resources */,
 				0CB97C6B29C6E0940052A580 /* LaunchScreen.storyboard in Resources */,
 				0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */,
 				0C685BDA29C84D01000BA32F /* AppInfoLinkTableViewCell.xib in Resources */,
 				0C685BDE29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib in Resources */,
 				0CB97CA529C74FF30052A580 /* ScreenShotCollectionViewCell.xib in Resources */,
+				0C36B90D29C9B1EC008BF283 /* star.json in Resources */,
 				0CB97C9929C71BBF0052A580 /* AppSearchCollectionViewCell.xib in Resources */,
 				0CB97CA129C737BE0052A580 /* Detail.storyboard in Resources */,
 				0CB8CE6B29C86443002FF3A3 /* AppUserRatingCountView.xib in Resources */,
@@ -355,6 +402,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CA4578A29C99362000AA9D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0CB97C5429C6E0920052A580 /* Sources */ = {
@@ -436,6 +504,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					"x86_64-apple-ios-simulator",
+				);
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -468,6 +540,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -485,7 +559,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -496,6 +570,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					"x86_64-apple-ios-simulator",
+				);
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -528,6 +606,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -539,6 +618,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -553,6 +633,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStorePreProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -581,6 +665,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStorePreProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -714,6 +804,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C36B8FF29C9A4E4008BF283 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		0C36B90229C9A5AC008BF283 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		0C36B90529C9A8CD008BF283 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C36B90029C9A4E4008BF283 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C36B8FF29C9A4E4008BF283 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		0C36B90329C9A5AC008BF283 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C36B90229C9A5AC008BF283 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0C36B90629C9A8CD008BF283 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C36B90529C9A8CD008BF283 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0CB97C6429C6E0920052A580 /* AppStorePreProject.xcdatamodeld */ = {
