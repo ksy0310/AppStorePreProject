@@ -165,12 +165,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "appSearchCollectionViewCell", for: indexPath) as! AppSearchCollectionViewCell
         
-        cell.appNameLabel.text = self.appData[indexPath.row].artistName
+        cell.appNameLabel.text = self.appData[indexPath.row].trackName
         
         let iconUrl = URL(string: self.appData[indexPath.row].artworkUrl60!)
         cell.appIconImageView.kf.setImage(with: iconUrl,placeholder: placeholderImage)
         
-        cell.appDescriptionLabel.text = self.appData[indexPath.row].kind
+        cell.appDescriptionLabel.text = self.appData[indexPath.row].description
         
         let ratingCount = round(self.appData[indexPath.row].averageUserRating ?? 0)
         
@@ -206,10 +206,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // collectionView cell select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
-        let detailView = storyboard.instantiateViewController(withIdentifier: "DetailViewController")
-        detailView.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        
-        self.presentDetail(detailView)
+        guard let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
+        detailViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        detailViewController.appInfo = self.appData[indexPath.row]
+        self.presentDetail(detailViewController)
     }
 }
 

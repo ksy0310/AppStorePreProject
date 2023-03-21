@@ -7,6 +7,7 @@
 
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
     
@@ -50,6 +51,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var appInfoTitleView: UIView!
     @IBOutlet var appInfoTableView: UITableView!
     
+    // 데이터
+    var appInfo:AppInfoResult!
+    let placeholderImage = UIImage(named: "noimage")
+    
+    var linkUrl = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,15 +92,38 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         appInfoDescriptionLabel.frame.size = appInfoDescriptionLabel.intrinsicContentSize
         appInfoDescriptionLabel.sizeToFit()
-        appInfoDescriptionLabel.text = "앱설명"
+        
+        appInfoDescriptionLabel.text = self.appInfo.description
+        appDescriptionLabel.text = self.appInfo.description
+        
+        let iconUrl = URL(string: self.appInfo.artworkUrl60!)
+        appIconImageView.kf.setImage(with: iconUrl,placeholder: placeholderImage)
+        miniAppIconImageView.kf.setImage(with: iconUrl,placeholder: placeholderImage)
+        
+        appNameLabel.text = self.appInfo.trackName
+        
+        linkUrl = self.appInfo.trackViewUrl ?? "https://apps.apple.com/kr/app"
+        
+        
         if appInfoDescriptionLabel.frame.height < 130 {
             appInfoDescriptionButton.isHidden = true
         }
         
+        
+        let ratingCount = round((self.appInfo.averageUserRating! * 100) / 100)
+        
+        let count = self.appInfo.userRatingCountForCurrentVersion ?? 0
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+
+        let result = numberFormatter.string(from: NSNumber(value: count)) ?? "0.0"
+        
         // userRatingCountView
         appRatingCountView.detailButton.addTarget(self, action: #selector(detailButtonAction), for: .touchUpInside)
-        appRatingCountView.setDataRatingGraphView(reviewCountString: "11,260", ratingCountString: "5.0")
-
+        
+        appRatingCountView.setDataRatingGraphView(reviewCountString: result, ratingCountString: String(ratingCount))
+        
+        
     }
     
     
