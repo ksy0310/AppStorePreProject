@@ -20,6 +20,9 @@ class InfoViewController: UIViewController {
     var selectRatingCount = 0
     let popupView = PopupView()
     
+    var setReviewCount = ""
+    var setRatingCount = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +33,7 @@ class InfoViewController: UIViewController {
     // 정보 화면 구성
     private func setupLayout() {
         userRatingCountView.detailButton.isHidden = true
-        userRatingCountView.setDataRatingGraphView(reviewCountString: "11,260", ratingCountString: "5.0")
+        userRatingCountView.setDataRatingGraphView(reviewCountString: setReviewCount, ratingCountString: setRatingCount)
         
         popupView.delegate = self
     }

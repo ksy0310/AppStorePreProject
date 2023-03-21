@@ -40,14 +40,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var summaryGenresView: UIView!
     @IBOutlet var summaryGenresNumberLabel: UILabel!
-    @IBOutlet var summaryGenresLabel: UILabel!
     
     @IBOutlet var summarySellerNameView: UIView!
     @IBOutlet var summarySellerNameLabel: UILabel!
     
     @IBOutlet var summaryLanguageCodesView: UIView!
     @IBOutlet var summaryLanguageLabel: UILabel!
-    @IBOutlet var summaryLanguageStringLabel: UILabel!
     
     @IBOutlet var appScreenShotView: UIView!
     
@@ -70,6 +68,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     let placeholderImage = UIImage(named: "noimage")
     
     var linkUrl = ""
+    var sendReviewCount = ""
+    var sendRatingCount = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +139,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         appRatingCountView.setDataRatingGraphView(reviewCountString: result, ratingCountString: String(ratingCount))
         
+        sendReviewCount = result
+        sendRatingCount = String(ratingCount)
+        
         summaryReviewCountLabel.text = "\(result)개의 평가"
         summaryRatingCountLabel.text = String(ratingCount)
         
@@ -151,9 +154,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             genresString += "\(i) "
         }
         
-        //TODO #7???
         summaryGenresNumberLabel.text = genresString
-        summaryGenresLabel.text = genresString
         
         summarySellerNameLabel.text = self.appInfo.artistName
         appSellerInfoLabel.text = self.appInfo.artistName
@@ -165,11 +166,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         summaryLanguageLabel.text = codeString
-        //TODO 한국어???
-        summaryLanguageStringLabel.text = codeString
         
         //TODO summary star graph!
-        
         
         
         screenShotList = self.appInfo.screenshotUrls!
@@ -184,10 +182,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - share Button
     @IBAction func shareButtonAction(_ sender: UIButton) {
-        let shareLink: String = "www.naver.com"
+//        let shareLink: String = linkUrl
         var shareObject = [Any]()
 
-        shareObject.append(shareLink)
+        shareObject.append(linkUrl)
 
         let activityViewController = UIActivityViewController(activityItems: shareObject, applicationActivities: nil)
                 activityViewController.popoverPresentationController?.sourceView = self.view
@@ -231,10 +229,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - detail Button
     @objc func detailButtonAction(sender: UIButton!) {
-        let infoView = storyboard!.instantiateViewController(withIdentifier: "InfoViewController")
-        infoView.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         
-        self.presentDetail(infoView)
+        guard let infoViewController = storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as? InfoViewController else {return}
+        infoViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        infoViewController.setRatingCount = sendRatingCount
+        infoViewController.setReviewCount = sendReviewCount
+        self.presentDetail(infoViewController)
     }
     
     // 앱 설명 더보기/ 접기
