@@ -45,6 +45,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var appSellerInfoView: UIView!
     
+    @IBOutlet var appRatingCountView: AppUserRatingCountView!
+    
+    @IBOutlet var appInfoTitleView: UIView!
     @IBOutlet var appInfoTableView: UITableView!
     
     override func viewDidLoad() {
@@ -86,6 +89,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         if appInfoDescriptionLabel.frame.height < 130 {
             appInfoDescriptionButton.isHidden = true
         }
+        
+        // userRatingCountView
+        appRatingCountView.detailButton.addTarget(self, action: #selector(detailButtonAction), for: .touchUpInside)
+        appRatingCountView.setDataRatingGraphView(reviewCountString: "11,260", ratingCountString: "5.0")
+
     }
     
     
@@ -139,6 +147,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             isDownload = true
         }
         
+    }
+    
+    // action - detail Button
+    @objc func detailButtonAction(sender: UIButton!) {
+        let infoView = storyboard!.instantiateViewController(withIdentifier: "InfoViewController")
+        infoView.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        
+        self.presentDetail(infoView)
     }
     
     // 앱 설명 더보기/ 접기

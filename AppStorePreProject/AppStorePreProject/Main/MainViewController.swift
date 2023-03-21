@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     @IBOutlet var appSearchResultView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    let popupView = PopupView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class MainViewController: UIViewController {
 
     // 검색 화면 구성
     private func setupLayout() {
+        popupView.delegate = self
         self.searchTilteViewConstraintHeight.constant = 100
         self.deleteButtonConstraintWidth.constant = 0
         
@@ -92,11 +94,7 @@ class MainViewController: UIViewController {
     
     // action - 프로필 버튼
     @objc func profileImageViewAction(sender: UIButton!) {
-        // 이전 페이지가 없다 - 알럿
-        let alert = UIAlertController(title: "개발자", message: "Name : 김소영 \n E-mail : ksy0310007@naver.com", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: false, completion: nil)
+        popupView.showAlert(message: "안녕하세요!\n개발자 : 김소영\nE-mail : ksy0310007@naver.com\nblog : https://dev-sso.tistory.com/", alertType: .profileAlert)
     }
     
 }
@@ -166,6 +164,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         self.presentDetail(detailView)
     }
+}
 
-
+// popupView
+extension MainViewController: PopupViewDelegate {
+    func onOkButtonAction() {
+        return
+    }
 }
