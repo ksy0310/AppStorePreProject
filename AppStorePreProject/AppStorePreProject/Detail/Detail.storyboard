@@ -704,6 +704,7 @@
                         <outlet property="appNameLabel" destination="3W3-Ow-kHt" id="3Po-mQ-cjL"/>
                         <outlet property="appRatingCountView" destination="OLd-Mk-bv8" id="xo2-Zw-SuU"/>
                         <outlet property="appScreenShotView" destination="0nV-La-mwc" id="d1u-aa-7OI"/>
+                        <outlet property="appSellerInfoLabel" destination="RSL-Dv-RSS" id="m7g-WO-Ojl"/>
                         <outlet property="appSellerInfoView" destination="bpv-J0-NqT" id="iQs-2d-fTc"/>
                         <outlet property="appSummaryView" destination="1GM-3d-AFj" id="bVe-FJ-vM2"/>
                         <outlet property="appTitleView" destination="2bc-SJ-MzM" id="wBW-a6-SMv"/>
@@ -714,9 +715,17 @@
                         <outlet property="miniDownloadButton" destination="Vq3-wn-dtS" id="l56-3G-nUh"/>
                         <outlet property="navigationView" destination="Fsl-ks-vnX" id="YFw-Ac-30f"/>
                         <outlet property="screenShotCollectionView" destination="3vm-15-Ia7" id="cMz-2F-0tk"/>
+                        <outlet property="summaryContentAdvisoryRatingLabel" destination="K7n-3f-yVC" id="2r5-LL-5Bi"/>
                         <outlet property="summaryContentAdvisoryRatingView" destination="pGx-fg-rEn" id="ZAG-m2-07t"/>
+                        <outlet property="summaryGenresLabel" destination="e5v-In-DfQ" id="vMq-d7-8MD"/>
+                        <outlet property="summaryGenresNumberLabel" destination="Tj8-C4-zop" id="A2O-zB-GIF"/>
                         <outlet property="summaryGenresView" destination="zMt-3g-CvF" id="hju-dN-KgK"/>
                         <outlet property="summaryLanguageCodesView" destination="TZA-D2-rp2" id="slt-Z9-M0T"/>
+                        <outlet property="summaryLanguageLabel" destination="iKL-9Y-spE" id="V8i-SN-ynx"/>
+                        <outlet property="summaryLanguageStringLabel" destination="DPH-Js-zb7" id="a2n-yX-ONw"/>
+                        <outlet property="summaryRatingCountLabel" destination="sjT-EZ-NNX" id="7a5-4a-6D1"/>
+                        <outlet property="summaryReviewCountLabel" destination="YeS-hT-Icm" id="ULx-st-14C"/>
+                        <outlet property="summarySellerNameLabel" destination="oob-SE-RGR" id="Hzz-OB-L6f"/>
                         <outlet property="summarySellerNameView" destination="yfw-dx-TWO" id="kvt-zN-JBW"/>
                         <outlet property="summaryUserRatingCountView" destination="Dy1-cG-X5Z" id="svW-AL-RKE"/>
                     </connections>

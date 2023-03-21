@@ -9,6 +9,7 @@ import UIKit
 
 class ScreenShotCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var mainView: UIView!
     @IBOutlet var mainImageView: UIImageView!
     
     override func awakeFromNib() {
@@ -18,9 +19,9 @@ class ScreenShotCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         
-        mainImageView.clipsToBounds = true
-        mainImageView.layer.cornerRadius = 20
-        mainImageView.layer.borderWidth = 1
-        mainImageView.layer.borderColor = RowColorAsset.defaultImageColor.load()?.cgColor
+        mainView.clipsToBounds = true
+        mainView.layer.cornerRadius = 20
+        mainView.layer.borderWidth = 1
+        mainView.layer.borderColor = RowColorAsset.defaultImageColor.load()?.cgColor
     }
 }

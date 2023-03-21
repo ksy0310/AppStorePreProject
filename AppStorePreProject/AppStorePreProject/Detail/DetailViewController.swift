@@ -23,6 +23,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var miniDownloadButton: UIButton!
     
     @IBOutlet var screenShotCollectionView: UICollectionView!
+    var screenShotList = [""]
     
     @IBOutlet var navigationView: UIView!
     @IBOutlet var containerView: UIView!
@@ -31,10 +32,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var appSummaryView: UIView!
     @IBOutlet var summaryUserRatingCountView: UIView!
+    @IBOutlet var summaryReviewCountLabel: UILabel!
+    @IBOutlet var summaryRatingCountLabel: UILabel!
+    
     @IBOutlet var summaryContentAdvisoryRatingView: UIView!
+    @IBOutlet var summaryContentAdvisoryRatingLabel: UILabel!
+    
     @IBOutlet var summaryGenresView: UIView!
+    @IBOutlet var summaryGenresNumberLabel: UILabel!
+    @IBOutlet var summaryGenresLabel: UILabel!
+    
     @IBOutlet var summarySellerNameView: UIView!
+    @IBOutlet var summarySellerNameLabel: UILabel!
+    
     @IBOutlet var summaryLanguageCodesView: UIView!
+    @IBOutlet var summaryLanguageLabel: UILabel!
+    @IBOutlet var summaryLanguageStringLabel: UILabel!
     
     @IBOutlet var appScreenShotView: UIView!
     
@@ -45,6 +58,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var isDescriptionOpenView = false
     
     @IBOutlet var appSellerInfoView: UIView!
+    @IBOutlet var appSellerInfoLabel: UILabel!
     
     @IBOutlet var appRatingCountView: AppUserRatingCountView!
     
@@ -77,7 +91,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         appIconImageView.clipsToBounds = true
         appIconImageView.layer.cornerRadius = 20
         miniAppIconImageView.clipsToBounds = true
-        miniAppIconImageView.layer.cornerRadius = 20
+        miniAppIconImageView.layer.cornerRadius = 10
         downloadButton.clipsToBounds = true
         downloadButton.layer.cornerRadius = 15
         miniDownloadButton.clipsToBounds = true
@@ -105,9 +119,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         linkUrl = self.appInfo.trackViewUrl ?? "https://apps.apple.com/kr/app"
         
         
-        if appInfoDescriptionLabel.frame.height < 130 {
-            appInfoDescriptionButton.isHidden = true
-        }
+//        if appInfoDescriptionLabel.frame.height < 130 {
+//            appInfoDescriptionButton.isHidden = true
+//        } else {
+//            appInfoDescriptionButton.isHidden = false
+//        }
         
         
         let ratingCount = round((self.appInfo.averageUserRating! * 100) / 100)
@@ -123,7 +139,41 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         appRatingCountView.setDataRatingGraphView(reviewCountString: result, ratingCountString: String(ratingCount))
         
+        summaryReviewCountLabel.text = "\(result)개의 평가"
+        summaryRatingCountLabel.text = String(ratingCount)
         
+        
+        summaryContentAdvisoryRatingLabel.text = self.appInfo.trackContentRating
+        
+        let genres = self.appInfo.genres ?? ["..."]
+        var genresString = ""
+        for i in genres {
+            genresString += "\(i) "
+        }
+        
+        //TODO #7???
+        summaryGenresNumberLabel.text = genresString
+        summaryGenresLabel.text = genresString
+        
+        summarySellerNameLabel.text = self.appInfo.artistName
+        appSellerInfoLabel.text = self.appInfo.artistName
+        
+        let languageCodes = self.appInfo.languageCodesISO2A ?? ["..."]
+        var codeString = ""
+        for i in languageCodes {
+            codeString += "\(i) "
+        }
+        
+        summaryLanguageLabel.text = codeString
+        //TODO 한국어???
+        summaryLanguageStringLabel.text = codeString
+        
+        //TODO summary star graph!
+        
+        
+        
+        screenShotList = self.appInfo.screenshotUrls!
+    
     }
     
     
@@ -234,12 +284,15 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     // collectionView cell count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return screenShotList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "screenShotCollectionViewCell", for: indexPath) as! ScreenShotCollectionViewCell
         
+        let screenshotUrl = URL(string: screenShotList[indexPath.row])
+        cell.mainImageView.kf.setImage(with: screenshotUrl,placeholder: placeholderImage)
+                
          return cell
     }
     
@@ -247,8 +300,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     // UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let width = view.bounds.width / 2
-        return CGSize(width: width, height: 430)
+        let width = view.bounds.width / 2.8
+        return CGSize(width: width, height: 330)
 
     }
 }
