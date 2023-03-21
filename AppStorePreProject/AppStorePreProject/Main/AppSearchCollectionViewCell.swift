@@ -28,6 +28,7 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet var screenShotThirdImageView: UIImageView!
     
     var isDownload = false
+    var countString = "0.0"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,8 +52,10 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
         screenShotThirdImageView.layer.cornerRadius = 20
         
         isDownload = false
-        
-        let countString = "4.5"
+        setRatingGraph()
+    }
+    
+    public func setRatingGraph() {
         switch countString {
             case "5.0":
                 starOneImageView.image = UIImage(named: "star")
@@ -60,13 +63,6 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
                 starThreeImageView.image = UIImage(named: "star")
                 starFourImageView.image = UIImage(named: "star")
                 starFiveImageView.image = UIImage(named: "star")
-                
-            case "4.5":
-                starOneImageView.image = UIImage(named: "star")
-                starTwoImageView.image = UIImage(named: "star")
-                starThreeImageView.image = UIImage(named: "star")
-                starFourImageView.image = UIImage(named: "star")
-                starFiveImageView.image = UIImage(named: "star_half")
             
             case "4.0":
                 starOneImageView.image = UIImage(named: "star")
@@ -74,25 +70,11 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
                 starThreeImageView.image = UIImage(named: "star")
                 starFourImageView.image = UIImage(named: "star")
                 starFiveImageView.image = UIImage(named: "star_empty")
-                
-            case "3.5":
-                starOneImageView.image = UIImage(named: "star")
-                starTwoImageView.image = UIImage(named: "star")
-                starThreeImageView.image = UIImage(named: "star")
-                starFourImageView.image = UIImage(named: "star_half")
-                starFiveImageView.image = UIImage(named: "star_empty")
             
             case "3.0":
                 starOneImageView.image = UIImage(named: "star")
                 starTwoImageView.image = UIImage(named: "star")
                 starThreeImageView.image = UIImage(named: "star")
-                starFourImageView.image = UIImage(named: "star_empty")
-                starFiveImageView.image = UIImage(named: "star_empty")
-                
-            case "2.5":
-                starOneImageView.image = UIImage(named: "star")
-                starTwoImageView.image = UIImage(named: "star")
-                starThreeImageView.image = UIImage(named: "star_half")
                 starFourImageView.image = UIImage(named: "star_empty")
                 starFiveImageView.image = UIImage(named: "star_empty")
             
@@ -102,23 +84,9 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
                 starThreeImageView.image = UIImage(named: "star_empty")
                 starFourImageView.image = UIImage(named: "star_empty")
                 starFiveImageView.image = UIImage(named: "star_empty")
-                
-            case "1.5":
-                starOneImageView.image = UIImage(named: "star")
-                starTwoImageView.image = UIImage(named: "star_half")
-                starThreeImageView.image = UIImage(named: "star_empty")
-                starFourImageView.image = UIImage(named: "star_empty")
-                starFiveImageView.image = UIImage(named: "star_empty")
             
             case "1.0":
                 starOneImageView.image = UIImage(named: "star")
-                starTwoImageView.image = UIImage(named: "star_empty")
-                starThreeImageView.image = UIImage(named: "star_empty")
-                starFourImageView.image = UIImage(named: "star_empty")
-                starFiveImageView.image = UIImage(named: "star_empty")
-            
-            case "0.5":
-                starOneImageView.image = UIImage(named: "star_half")
                 starTwoImageView.image = UIImage(named: "star_empty")
                 starThreeImageView.image = UIImage(named: "star_empty")
                 starFourImageView.image = UIImage(named: "star_empty")
@@ -131,7 +99,6 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
                 starFourImageView.image = UIImage(named: "star_empty")
                 starFiveImageView.image = UIImage(named: "star_empty")
         }
-        
     }
     
     

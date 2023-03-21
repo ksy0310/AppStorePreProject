@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class MainViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     let popupView = PopupView()
+    var appData = [AppInfoResult]()
+    let placeholderImage = UIImage(named: "noimage")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +117,24 @@ extension MainViewController: UITextFieldDelegate {
         if textField.text != nil {
             recentSearchView.isHidden = true
             appSearchResultView.isHidden = false
+            
+            self.appData.removeAll()
+            AppStoreNetworkManager.shared.getAppData(searchText: textField.text!) { data in
+                
+                if data != nil {
+                    self.appData = data
+                    DispatchQueue.main.async {
+                        // collectionview 제일 위로 이동
+                        self.collectionView.scrollToItem(at: IndexPath(row: -1, section: 0), at: .top, animated: true)
+                        self.collectionView.reloadData()
+                    }
+                } else {
+                    print("Network fail", data)
+                }
+                
+            }
+            
+            
         }else{
             // 검색어가 없을때 알럿
             let alert = UIAlertController(title: "알림", message: "검색어를 입력하세요.", preferredStyle: UIAlertController.Style.alert)
@@ -138,11 +159,37 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     // collectionView cell count
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return self.appData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "appSearchCollectionViewCell", for: indexPath) as! AppSearchCollectionViewCell
+        
+        cell.appNameLabel.text = self.appData[indexPath.row].artistName
+        
+        let iconUrl = URL(string: self.appData[indexPath.row].artworkUrl60!)
+        cell.appIconImageView.kf.setImage(with: iconUrl,placeholder: placeholderImage)
+        
+        cell.appDescriptionLabel.text = self.appData[indexPath.row].kind
+        
+        let ratingCount = round(self.appData[indexPath.row].averageUserRating ?? 0)
+        
+        cell.countString = String(ratingCount)
+        cell.setRatingGraph()
+        
+        let count = self.appData[indexPath.row].userRatingCountForCurrentVersion ?? 0
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+
+        let result = numberFormatter.string(from: NSNumber(value: count))
+        cell.userRatingCountLabel.text = result
+        
+        let screenshotFirstUrl = URL(string: self.appData[indexPath.row].screenshotUrls![0])
+        let screenshotSecondUrl = URL(string: self.appData[indexPath.row].screenshotUrls![1])
+        let screenshotThirdUrl = URL(string: self.appData[indexPath.row].screenshotUrls![2])
+        cell.screenShotFirstImageView.kf.setImage(with: screenshotFirstUrl,placeholder: placeholderImage)
+        cell.screenShotSecondImageView.kf.setImage(with: screenshotSecondUrl,placeholder: placeholderImage)
+        cell.screenShotThirdImageView.kf.setImage(with: screenshotThirdUrl,placeholder: placeholderImage)
         
          return cell
     }
