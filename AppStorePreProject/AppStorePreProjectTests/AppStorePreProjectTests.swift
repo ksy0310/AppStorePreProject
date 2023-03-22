@@ -31,7 +31,6 @@ final class AppStorePreProjectTests: XCTestCase {
                             self.appInfo = response.results
                             XCTAssertNotNil(self.appInfo)
 //                            XCTAssertEqual(self.appInfo.count, 31, "JSONDecoder 성공! 총 31개의 item이 있다.")
-                            
                         } catch {
                             print(error)
                         }
@@ -63,6 +62,7 @@ final class AppStorePreProjectTests: XCTestCase {
         XCTAssertEqual(result, "11,260", "천 단위마다 ,찍기 완료.")
     }
 
+    // 바이트 -> MB로 단위 변경
     func testBytes() throws {
         var bytes = Double(307005440)
         var conversion = 0.0

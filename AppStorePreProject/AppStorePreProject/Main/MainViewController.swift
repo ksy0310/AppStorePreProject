@@ -1,4 +1,6 @@
 //
+// AppStore search 화면.
+//
 //  MainViewController.swift
 //  AppStorePreProject
 //
@@ -24,22 +26,25 @@ class MainViewController: UIViewController {
     @IBOutlet var appSearchResultView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    // recentSearchView
     @IBOutlet var recentSearchTitleViewConstraintHeight: NSLayoutConstraint!
     @IBOutlet var recentSearchTitleView: UIView!
     @IBOutlet var tableView: UITableView!
     
+    // coreData
     var recentSearchString:[NSManagedObject] = []
     var matchSearchString:[NSManagedObject] = []
     
     var isBeginEditing = false
-    
     let popupView = PopupView()
+    // 데이터
     var appData = [AppInfoResult]()
     let placeholderImage = UIImage(named: "noimage")
     
     //로딩
     let loading = LoadingIndicator.shared
     
+    // context
     var context: NSManagedObjectContext! {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
@@ -54,6 +59,7 @@ class MainViewController: UIViewController {
         configureTableView()
     }
     
+    // coredata load
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -65,6 +71,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // 최근검색어 일치 항목
     func filter(text:String) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "RecentSearch")
         fetchRequest.predicate = NSPredicate(format: "searchString CONTAINS %@", text)
@@ -85,23 +92,18 @@ class MainViewController: UIViewController {
         // profileImageView 클릭시 팝업 -> 내 소개
         profileButton.addTarget(self, action: #selector(profileImageViewAction), for: .touchUpInside)
         
-        // 검색어 입력시 -> 검색 리스트
-        
         // 키보드 리턴 키 변경
         searchTextField.returnKeyType = .search
         searchView.clipsToBounds = true
         searchView.layer.cornerRadius = 10
         
+        // 최근 검색어 화면
         recentSearchView.isHidden = false
         appSearchResultView.isHidden = true
     }
     
-    // action - 취소 버튼
+    // action - deleteButton
     @IBAction func deleteButtonAction(_ sender: UIButton) {
-        // 취소버튼 클릭 -> searchTitleview height 100 (anim)
-        //           -> textField ""
-        //           -> 취소버튼 사라지기 (anim)
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.searchTilteViewConstraintHeight.constant = 100
             self.deleteButtonConstraintWidth.constant = 0
@@ -111,46 +113,42 @@ class MainViewController: UIViewController {
             self.searchTitleView.isHidden = false
         })
         
+        // textField 초기화
         searchTextField.resignFirstResponder()
         searchTextField.text = ""
         
         recentSearchView.isHidden = false
         appSearchResultView.isHidden = true
-        
         isBeginEditing = false
         matchSearchString.removeAll()
         
         self.tableView.reloadData()
     }
     
-    // action - 검색 필드
+    // action - searchTextField
     @IBAction func searchTextFieldAction(_ sender: UITextField) {
         searchBeginAnimation()
     }
     
+    // 검색 필드 포커스 시
     func searchBeginAnimation() {
-        // 검색 필드 포커스시 -> searchTitleview height 0 (anim)
-        //               -> 취소버튼 보이기
-        //               -> 키보드 올라오기
-        
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.searchTilteViewConstraintHeight.constant = 0
             self.deleteButtonConstraintWidth.constant = 55
             self.searchTitleView.isHidden = true
             self.view.layoutIfNeeded()
         })
-        
+        // 키보드
         searchTextField.becomeFirstResponder()
     }
     
-    // action - 프로필 버튼
+    // action - profileImageView
     @objc func profileImageViewAction(sender: UIButton!) {
         popupView.showAlert(message: "안녕하세요!\nName : 김소영\nE-mail : ksy0310007@naver.com\nblog : https://dev-sso.tistory.com/", alertType: .profileAlert)
     }
     
+    // 최근 검색어 저장
     func saveSearchString(searchString:String) {
-        
         let entity = NSEntityDescription.entity(forEntityName: "RecentSearch", in: context)!
         let recentSearch = NSManagedObject(entity: entity, insertInto: context)
         recentSearch.setValue(searchString, forKey: "searchString")
@@ -166,11 +164,13 @@ class MainViewController: UIViewController {
 // textField -> 검색
 extension MainViewController: UITextFieldDelegate {
     
+    // textField 화면 구성
     func configuereSearch() {
         searchTextField.delegate = self
         self.searchTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     
+    // 입력값이 변경 될 때마다 호출
     @objc func textFieldDidChange(_ sender: Any?) {
         isBeginEditing = true
         recentSearchTitleView.isHidden = true
@@ -182,18 +182,20 @@ extension MainViewController: UITextFieldDelegate {
         }
     }
 
+    // 키보드 검색 버튼
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // 검색
         isBeginEditing = false
         recentSearchTitleView.isHidden = false
         recentSearchTitleViewConstraintHeight.constant = 56
         
         textField.resignFirstResponder()
         self.loading.showIndicator()
+        
         if textField.text != nil {
             saveSearchString(searchString: textField.text!)
             self.tableView.reloadData()
             
+            // 앱 검색
             searchData(searcText: textField.text!)
             
         }else{
@@ -208,13 +210,14 @@ extension MainViewController: UITextFieldDelegate {
         return true
     }
     
+    // 앱 검색 통신
     func searchData(searcText:String) {
-        
         recentSearchView.isHidden = true
         appSearchResultView.isHidden = false
         
         self.appData.removeAll()
         AppStoreNetworkManager.shared.getAppData(searchText: searcText) { data in
+            // 통신 완료
             self.appData = data
             DispatchQueue.main.async {
                 // collectionview 제일 위로 이동
@@ -230,6 +233,7 @@ extension MainViewController: UITextFieldDelegate {
 // collectionView
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    // collectionview 화면 구성
     func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -243,6 +247,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return self.appData.count
     }
     
+    // collectionView cell UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "appSearchCollectionViewCell", for: indexPath) as! AppSearchCollectionViewCell
         
@@ -272,7 +277,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.screenShotSecondImageView.kf.setImage(with: screenshotSecondUrl,placeholder: placeholderImage)
         cell.screenShotThirdImageView.kf.setImage(with: screenshotThirdUrl,placeholder: placeholderImage)
         
-         return cell
+        return cell
     }
     
     // collectionView cell size
@@ -281,7 +286,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         let width = view.bounds.width
         return CGSize(width: width, height: 400)
-
     }
     
     // collectionView cell select
@@ -304,15 +308,16 @@ extension MainViewController: PopupViewDelegate {
 // RecentSearch
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
+    // RecentSearch tableView 화면 구성
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "RecentSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentSearchTableViewCell")
         tableView.register(UINib(nibName: "MatchSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "MatchSearchTableViewCell")
-        
     }
     
+    // tableView cell count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isBeginEditing {
             return matchSearchString.count
@@ -321,6 +326,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    // tableView cell UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isBeginEditing {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MatchSearchTableViewCell", for: indexPath) as! MatchSearchTableViewCell
@@ -335,8 +341,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    // select cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if isBeginEditing {
             let data = matchSearchString[indexPath.row].value(forKey: "searchString") as? String
             searchBeginAnimation()
@@ -350,5 +356,4 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
         searchTextField.resignFirstResponder()
     }
-    
 }

@@ -1,4 +1,6 @@
 //
+// 앱 정보 상세 화면.
+//
 //  DetailViewController.swift
 //  AppStorePreProject
 //
@@ -14,27 +16,31 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var mainScrollView: UIScrollView!
     
     var isDownload = false
+    
+    // title View
+    @IBOutlet var appTitleView: UIView!
     @IBOutlet var appIconImageView: UIImageView!
     @IBOutlet var appNameLabel: UILabel!
     @IBOutlet var appDescriptionLabel: UILabel!
     @IBOutlet var downloadButton: UIButton!
     
+    // navigationBar
+    @IBOutlet var navigationView: UIView!
+    @IBOutlet var containerView: UIView!
     @IBOutlet var miniAppIconImageView: UIImageView!
     @IBOutlet var miniDownloadButton: UIButton!
     
+    // screenshot
     @IBOutlet var screenShotCollectionView: UICollectionView!
     var screenShotList = [""]
+    @IBOutlet var appScreenShotView: UIView!
     
-    @IBOutlet var navigationView: UIView!
-    @IBOutlet var containerView: UIView!
-    
-    @IBOutlet var appTitleView: UIView!
-    
+    // summary view
     @IBOutlet var appSummaryView: UIView!
     @IBOutlet var summaryUserRatingCountView: UIView!
     @IBOutlet var summaryReviewCountLabel: UILabel!
     @IBOutlet var summaryRatingCountLabel: UILabel!
-    
+    // ratingCount - star imageview
     @IBOutlet var starOneImageView: UIImageView!
     @IBOutlet var starTwoImageView: UIImageView!
     @IBOutlet var starThreeImageView: UIImageView!
@@ -53,22 +59,23 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var summaryLanguageCodesView: UIView!
     @IBOutlet var summaryLanguageLabel: UILabel!
     
-    @IBOutlet var appScreenShotView: UIView!
-    
+    // description view
     @IBOutlet var appInfoDescriptionViewConstraintHeight: NSLayoutConstraint!
     @IBOutlet var appInfoDescriptionView: UIView!
     @IBOutlet var appInfoDescriptionLabel: UILabel!
     @IBOutlet var appInfoDescriptionButton: UIButton!
     var isDescriptionOpenView = false
     
+    // sellerInfoView
     @IBOutlet var appSellerInfoView: UIView!
     @IBOutlet var appSellerInfoLabel: UILabel!
     
+    // ratingCountView
     @IBOutlet var appRatingCountView: AppUserRatingCountView!
     
+    // appInfo view
     @IBOutlet var appInfoTitleView: UIView!
     @IBOutlet var appInfoContentView: UIView!
-    
     @IBOutlet var appInfoArtistNameLabel: UILabel!
     @IBOutlet var appInfoSizeLabel: UILabel!
     @IBOutlet var appInfoGenresLabel: UILabel!
@@ -82,7 +89,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var appInfoAdvisoryRatingButton: UIButton!
     @IBOutlet var appInfoAdvisoryRatingConstraintHeight: NSLayoutConstraint!
     @IBOutlet var appInfoCopyrightLabel: UILabel!
-    
     @IBOutlet var appInfoArtistViewUrlButton: UIButton!
     @IBOutlet var appInfoTrackViewUrlButton: UIButton!
     
@@ -95,6 +101,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var trackViewUrl = ""
     var sendReviewCount = ""
     var sendRatingCount = ""
+    var appId = ""
     var descriptionContentSize = CGFloat(130.0)
     
     override func viewDidLoad() {
@@ -107,18 +114,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
 
     // 디테일 화면 구성
     private func setupLayout() {
-        
         mainScrollView.delegate = self
+        
         miniAppIconImageView.isHidden = true
         miniDownloadButton.isHidden = true
         
         isDownload = false
+        
         appIconImageView.clipsToBounds = true
         appIconImageView.layer.cornerRadius = 20
+        
         miniAppIconImageView.clipsToBounds = true
         miniAppIconImageView.layer.cornerRadius = 10
+        
         downloadButton.clipsToBounds = true
         downloadButton.layer.cornerRadius = 15
+        
         miniDownloadButton.clipsToBounds = true
         miniDownloadButton.layer.cornerRadius = 15
         
@@ -131,8 +142,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         appInfoAdvisoryRatingImageView.isHidden = false
     }
     
+    // 데이터 셋팅
     private func setData() {
-        
         appInfoDescriptionLabel.text = self.appInfo.description
         appDescriptionLabel.text = self.appInfo.description
         
@@ -148,7 +159,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         linkUrl = self.appInfo.trackViewUrl ?? "https://apps.apple.com/kr/app"
         
-        
         let ratingCount = round((self.appInfo.averageUserRating! * 100) / 100)
         
         let count = self.appInfo.userRatingCountForCurrentVersion ?? 0
@@ -159,30 +169,30 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         // userRatingCountView
         appRatingCountView.detailButton.addTarget(self, action: #selector(detailButtonAction), for: .touchUpInside)
-        
         appRatingCountView.setDataRatingGraphView(reviewCountString: result, ratingCountString: String(ratingCount))
         
         sendReviewCount = result
         sendRatingCount = String(ratingCount)
         
+        // 평가 리뷰 개수
         summaryReviewCountLabel.text = "\(result)개의 평가"
         summaryRatingCountLabel.text = String(ratingCount)
-        
         setSummaryRatingGraph(score: String(ratingCount))
         
         summaryContentAdvisoryRatingLabel.text = self.appInfo.contentAdvisoryRating
         
+        // 평점
         let genres = self.appInfo.genres ?? ["..."]
         var genresString = ""
         for i in genres {
             genresString += "\(i) "
         }
-        
         summaryGenresNumberLabel.text = genresString
         
         summarySellerNameLabel.text = self.appInfo.artistName
         appSellerInfoLabel.text = self.appInfo.artistName
         
+        // 언어
         let languageCodes = self.appInfo.languageCodesISO2A ?? ["..."]
         var codeString = ""
         for i in languageCodes {
@@ -210,6 +220,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         artistViewUrl = self.appInfo.artistViewUrl!
         trackViewUrl = self.appInfo.trackViewUrl!
+        appId = String(self.appInfo.trackId!)
         
         appInfoLanguageCodeButton.addTarget(self, action: #selector(appInfoLanguageCodeButtonAction), for: .touchUpInside)
         appInfoAdvisoryRatingButton.addTarget(self, action: #selector(appInfoAdvisoryRatingButtonAction), for: .touchUpInside)
@@ -283,7 +294,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - download Button
     @IBAction func downloadButtonAction(_ sender: UIButton) {
-        
         if isDownload {
             downloadButton.setTitle("열기", for: .normal)
             downloadButton.setTitleColor(RowColorAsset.pointBlueColor.load(), for: .normal)
@@ -294,7 +304,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             miniDownloadButton.setTitleColor(RowColorAsset.pointBlueColor.load(), for: .normal)
             
             miniDownloadButton.backgroundColor = RowColorAsset.subBackgroundColor.load()
-            
             
             isDownload = false
             
@@ -309,19 +318,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             
             miniDownloadButton.backgroundColor = RowColorAsset.pointBlueColor.load()
             
-            
             isDownload = true
         }
-        
     }
     
     // action - detail Button
     @objc func detailButtonAction(sender: UIButton!) {
-        
         guard let infoViewController = storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as? InfoViewController else {return}
         infoViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         infoViewController.setRatingCount = sendRatingCount
         infoViewController.setReviewCount = sendReviewCount
+        infoViewController.itunesItemId = appId
         self.presentDetail(infoViewController)
     }
     
@@ -339,7 +346,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - appInfoArtistViewUrlButton
     @objc func appInfoArtistViewUrlButtonAction(sender: UIButton!) {
-        print("@@@ artistViewUrl = \(artistViewUrl)")
         if let url = URL(string: artistViewUrl) {
             UIApplication.shared.open(url, options: [:])
         }
@@ -347,16 +353,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - appInfoTrackViewUrlButton
     @objc func appInfoTrackViewUrlButtonAction(sender: UIButton!) {
-        print("@@@ trackViewUrl = \(trackViewUrl)")
         if let url = URL(string: trackViewUrl) {
             UIApplication.shared.open(url, options: [:])
         }
     }
     
-    
     // 앱 설명 더보기/ 접기
     @IBAction func appInfoDescriptionButtonAction(_ sender: UIButton) {
-        
         if isDescriptionOpenView {
             appInfoDescriptionViewConstraintHeight.constant = descriptionContentSize
             appInfoDescriptionButton.setTitle("접기", for: .normal)
@@ -368,7 +371,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             isDescriptionOpenView = true
         }
     }
-
     
     // 메인 스크롤 위치에 따른 mini view
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -382,19 +384,18 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
         }
     }
-   
 }
 
 // collectionView
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    // collectionview 화면 구성
     func configureCollectionView() {
         screenShotCollectionView.dataSource = self
         screenShotCollectionView.delegate = self
-        
+    
         screenShotCollectionView.register(UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
         , forCellWithReuseIdentifier: "screenShotCollectionViewCell")
-        
     }
     
     // collectionView cell count
@@ -402,6 +403,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return screenShotList.count
     }
     
+    // collectionView cell UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "screenShotCollectionViewCell", for: indexPath) as! ScreenShotCollectionViewCell
         
@@ -414,9 +416,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     // collectionView cell size
     // UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         let width = view.bounds.width / 2.8
         return CGSize(width: width, height: 330)
-
     }
 }

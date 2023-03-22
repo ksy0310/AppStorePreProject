@@ -18,7 +18,6 @@ class ScreenShotCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        
         mainView.clipsToBounds = true
         mainView.layer.cornerRadius = 20
         mainView.layer.borderWidth = 1

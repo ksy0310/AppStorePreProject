@@ -1,4 +1,6 @@
 //
+// 앱 검색 CollectionView Cell.
+//
 //  AppSearchCollectionViewCell.swift
 //  AppStorePreProject
 //
@@ -9,20 +11,23 @@ import UIKit
 
 class AppSearchCollectionViewCell: UICollectionViewCell {
     
+    // 타이틀
     @IBOutlet var appIconImageView: UIImageView!
     @IBOutlet var appNameLabel: UILabel!
     @IBOutlet var appDescriptionLabel: UILabel!
     
+    // RatingCount
     @IBOutlet var userRatingCountLabel: UILabel!
-    
     @IBOutlet var starOneImageView: UIImageView!
     @IBOutlet var starTwoImageView: UIImageView!
     @IBOutlet var starThreeImageView: UIImageView!
     @IBOutlet var starFourImageView: UIImageView!
     @IBOutlet var starFiveImageView: UIImageView!
     
+    // 다운로드 버튼
     @IBOutlet var downloadButton: UIButton!
     
+    // screenShot
     @IBOutlet var screenShotFirstImageView: UIImageView!
     @IBOutlet var screenShotSecondImageView: UIImageView!
     @IBOutlet var screenShotThirdImageView: UIImageView!
@@ -55,6 +60,7 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
         setRatingGraph()
     }
     
+    // 별점 데이터-그래프 set
     public func setRatingGraph() {
         switch countString {
             case "5.0":
@@ -101,16 +107,14 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
+    // action - downloadButton
     @IBAction func downloadButtonAction(_ sender: UIButton) {
-        
         if isDownload {
             downloadButton.setTitle("열기", for: .normal)
             downloadButton.setTitleColor(RowColorAsset.subBackgroundColor.load(), for: .normal)
             
             downloadButton.backgroundColor = RowColorAsset.pointBlueColor.load()
             isDownload = false
-            
         } else {
             downloadButton.setTitle("받기", for: .normal)
             downloadButton.setTitleColor(RowColorAsset.pointBlueColor.load(), for: .normal)
@@ -118,7 +122,5 @@ class AppSearchCollectionViewCell: UICollectionViewCell {
             downloadButton.backgroundColor = RowColorAsset.subBackgroundColor.load()
             isDownload = true
         }
-        
     }
-    
 }

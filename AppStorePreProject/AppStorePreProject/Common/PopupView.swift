@@ -1,4 +1,6 @@
 //
+// PopupView - profile과 review화면에서 사용.
+//
 //  PopupView.swift
 //  AppStorePreProject
 //
@@ -17,12 +19,10 @@ class PopupView: UIView {
     
     @IBOutlet var parentView: UIView!
     @IBOutlet var popupView: UIView!
-    
     @IBOutlet var animationView: UIView!
     @IBOutlet var messageLabel: UILabel!
     
     @IBOutlet var okButton: UIButton!
-    
     @IBOutlet var popupViewConstraintHeight: NSLayoutConstraint!
     
     enum AlertType {
@@ -47,8 +47,6 @@ class PopupView: UIView {
         parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         if #available(iOS 13.0, *) {
             parentView.overrideUserInterfaceStyle = .light
-        } else {
-            
         }
         
         popupView.layer.masksToBounds = true
@@ -56,9 +54,7 @@ class PopupView: UIView {
         
         okButton.layer.masksToBounds = true
         okButton.layer.cornerRadius = 5
-        
     }
-    
 
     func showAlert(message: String, alertType: AlertType) {
         
@@ -94,7 +90,6 @@ class PopupView: UIView {
         if let del = delegate {
             del.onOkButtonAction()
         }
-        
         parentView.removeFromSuperview()
     }
     

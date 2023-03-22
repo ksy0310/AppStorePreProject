@@ -1,4 +1,6 @@
 //
+// iTunes Search API Response.
+//
 //  AppInfo.swift
 //  AppStorePreProject
 //

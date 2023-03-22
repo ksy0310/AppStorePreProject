@@ -1,4 +1,6 @@
 //
+// user RatingCount 화면.
+//
 //  AppUserRatingCountView.swift
 //  AppStorePreProject
 //
@@ -12,7 +14,6 @@ class AppUserRatingCountView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var ratingCountLabel: UILabel!
-    
     @IBOutlet var totalCountLabel: UILabel!
     
     @IBOutlet var graphFiveRatingView: UIView!
@@ -31,16 +32,7 @@ class AppUserRatingCountView: UIView {
         self.loadXib()
     }
     
-    
     private func loadXib() {
-//            let identifier = String(describing: type(of: self))
-//            let nibs = Bundle.main.loadNibNamed(identifier, owner: self, options: nil)
-//
-//            guard let customView = nibs?.first as? UIView else { return }
-//            customView.frame = self.bounds
-//            self.addSubview(customView)
-        
-        
         Bundle.main.loadNibNamed("AppUserRatingCountView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -49,8 +41,8 @@ class AppUserRatingCountView: UIView {
         setupLayout()
     }
     
+    // 화면 구성
     private func setupLayout() {
-
         graphFiveRatingView.clipsToBounds = true
         graphFiveRatingView.layer.cornerRadius = 5
 
@@ -65,13 +57,10 @@ class AppUserRatingCountView: UIView {
 
         graphOneRatingView.clipsToBounds = true
         graphOneRatingView.layer.cornerRadius = 5
-        
-        
     }
 
-    // 별점 데이터-그래프 UI
+    // 별점 데이터-그래프 set
     public func setDataRatingGraphView(reviewCountString: String, ratingCountString: String) {
-
         ratingCountLabel.text = ratingCountString
         totalCountLabel.text = reviewCountString + "개의 평가"
 
@@ -87,7 +76,6 @@ class AppUserRatingCountView: UIView {
             graphTwoRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
             graphOneRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
             
-            
             case "4":
                 //4점
             graphFiveRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
@@ -96,7 +84,6 @@ class AppUserRatingCountView: UIView {
             graphTwoRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
             graphOneRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
 
-                
             case "3":
                 //3점
             graphFiveRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
@@ -105,7 +92,6 @@ class AppUserRatingCountView: UIView {
             graphTwoRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
             graphOneRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
                
-                
             case "2":
                 //2점
             graphFiveRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
@@ -113,7 +99,6 @@ class AppUserRatingCountView: UIView {
             graphThreeRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
             graphTwoRatingView.backgroundColor = RowColorAsset.mainTextColor.load()
             graphOneRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
-            
             
             case "1":
                 //1점
@@ -131,7 +116,5 @@ class AppUserRatingCountView: UIView {
             graphTwoRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
             graphOneRatingView.backgroundColor = RowColorAsset.subBackgroundColor.load()
         }
-
     }
-
 }

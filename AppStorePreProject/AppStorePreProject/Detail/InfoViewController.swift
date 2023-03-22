@@ -1,3 +1,4 @@
+// 평가 및 리뷰 화면.
 //
 //  InfoViewController.swift
 //  AppStorePreProject
@@ -10,7 +11,6 @@ import UIKit
 class InfoViewController: UIViewController {
     
     @IBOutlet var userRatingCountView: AppUserRatingCountView!
-    
     @IBOutlet var starFirstButton: UIButton!
     @IBOutlet var starTwoButton: UIButton!
     @IBOutlet var starThreeButton: UIButton!
@@ -22,12 +22,12 @@ class InfoViewController: UIViewController {
     
     var setReviewCount = ""
     var setRatingCount = ""
+    var itunesItemId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
-        
     }
     
     // 정보 화면 구성
@@ -38,12 +38,13 @@ class InfoViewController: UIViewController {
         popupView.delegate = self
     }
     
+    // action - backButton
     @IBAction func backButtonAction(_ sender: UIButton) {
         self.dismissDetail()
     }
     
+    // action - starButton
     @IBAction func starButtonActions(_ sender: UIButton) {
-        
         switch sender.tag {
             case 1:
             // 1점
@@ -99,8 +100,8 @@ class InfoViewController: UIViewController {
         popupView.showAlert(message: "피드백을 보내주셔서 감사합니다.", alertType: .notiAlert)
     }
     
+    // 앱 피드백 등록 화면
     private func writeReview(score:Int) {
-        var itunesItemId = 1258016944
         if let appstoreURL = URL(string: "https://apps.apple.com/kr/app/id\(itunesItemId)") {
             var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
             components?.queryItems = [
@@ -115,6 +116,7 @@ class InfoViewController: UIViewController {
         }
     }
 }
+
 // popupView
 extension InfoViewController: PopupViewDelegate {
     func onOkButtonAction() {

@@ -1,4 +1,6 @@
 //
+// iTunes Search API 연결 매니저.
+//
 //  AppStoreNetworkManager.swift
 //  AppStorePreProject
 //
@@ -24,26 +26,24 @@ struct AppStoreNetworkManager {
         // 한글 가능
         let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        print("!!! 통신 url 확인 : \(encodedString)")
         AF.request(encodedString,method: .get,parameters: nil,encoding: JSONEncoding.default,headers: ["Content-Type":"application/json", "Accept":"application/json"])
             .responseJSON { response in
                 switch response.result{
-                            case .success:
-                                guard let result = response.data else {return}
+                    case .success:
+                        guard let result = response.data else {return}
                                 
-                                do {
-                                    let decoder = JSONDecoder()
-                                    let json = try decoder.decode(ApiResponse.self, from: result)
+                        do {
+                            let decoder = JSONDecoder()
+                            let json = try decoder.decode(ApiResponse.self, from: result)
                                 
-                                    completion(json.results)
+                            completion(json.results)
                                     
-                                } catch {
-                                    print("error! : \(error.localizedDescription)")
-                                }
-                            default:
-                                return
-                            }
+                        } catch {
+                            print("error! : \(error.localizedDescription)")
+                        }
+                    default:
+                        return
+                }
             }
     }
-    
 }

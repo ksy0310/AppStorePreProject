@@ -1,4 +1,6 @@
 //
+// 최근 검색어 일치 항목 TableView Cell
+//
 //  MatchSearchTableViewCell.swift
 //  AppStorePreProject
 //
@@ -10,15 +12,13 @@ import UIKit
 class MatchSearchTableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

@@ -87,7 +87,7 @@ https://www.flaticon.com/
 ## :page_facing_up: 참조 사이트
 - https://vapor3965.tistory.com/49
 - https://dongminyoon.tistory.com/3?category=419821
-
+- https://onelife2live.tistory.com/35
 
 ## :high_brightness: 개발자 연락처
 김소영 (ksy0310007@naver.com)

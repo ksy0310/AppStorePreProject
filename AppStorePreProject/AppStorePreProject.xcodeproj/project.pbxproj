@@ -63,8 +63,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C2EF4FA29C9A2160003CEBD /* iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOS; path = Carthage/Build/iOS; sourceTree = "<group>"; };
-		0C2EF4FB29C9A2300003CEBD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		0C36B90B29C9B1EC008BF283 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../../Desktop/appstore_icon/star.json; sourceTree = "<group>"; };
 		0C36B90C29C9B1EC008BF283 /* profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = profile.json; path = ../../../../../Desktop/appstore_icon/profile.json; sourceTree = "<group>"; };
 		0C36B90F29C9BF93008BF283 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
@@ -75,7 +73,8 @@
 		0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchTableViewCell.xib; sourceTree = "<group>"; };
 		0C36B92429CB1CE9008BF283 /* MatchSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSearchTableViewCell.swift; sourceTree = "<group>"; };
 		0C36B92529CB1CE9008BF283 /* MatchSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchSearchTableViewCell.xib; sourceTree = "<group>"; };
-		0CA4578629C99342000AA9D3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		0C36B92E29CB3C9D008BF283 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		0C36B92F29CB3C9D008BF283 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserRatingCountView.swift; sourceTree = "<group>"; };
 		0CB8CE6A29C86443002FF3A3 /* AppUserRatingCountView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUserRatingCountView.xib; sourceTree = "<group>"; };
@@ -142,12 +141,29 @@
 			path = animation;
 			sourceTree = "<group>";
 		};
+		0C36B92829CB30CD008BF283 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0C36B91529CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0C36B92929CB38B6008BF283 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0C36B90A29C9B1BB008BF283 /* animation */,
+				0CB97C6729C6E0940052A580 /* Assets.xcassets */,
+				0CB97C9429C6ED4C0052A580 /* ColorAssets.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		0CA4578529C99342000AA9D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0C2EF4FB29C9A2300003CEBD /* Kingfisher.framework */,
-				0C2EF4FA29C9A2160003CEBD /* iOS */,
-				0CA4578629C99342000AA9D3 /* Alamofire.framework */,
+				0C36B92E29CB3C9D008BF283 /* Alamofire.framework */,
+				0C36B92F29CB3C9D008BF283 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,12 +192,12 @@
 		0CB97C5A29C6E0920052A580 /* AppStorePreProject */ = {
 			isa = PBXGroup;
 			children = (
+				0C36B92929CB38B6008BF283 /* Resource */,
 				0CB97C9329C6EAA70052A580 /* Detail */,
 				0CB97C9129C6EA830052A580 /* Common */,
 				0CB97C8E29C6E9F50052A580 /* Main */,
 				0CB97C5B29C6E0920052A580 /* AppDelegate.swift */,
 				0CB97C5D29C6E0920052A580 /* SceneDelegate.swift */,
-				0CB97C6729C6E0940052A580 /* Assets.xcassets */,
 				0CB97C6929C6E0940052A580 /* LaunchScreen.storyboard */,
 				0CB97C6C29C6E0940052A580 /* Info.plist */,
 			);
@@ -224,14 +240,12 @@
 		0CB97C9129C6EA830052A580 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0C36B90A29C9B1BB008BF283 /* animation */,
+				0C36B92829CB30CD008BF283 /* CoreData */,
 				0CB97C9229C6EA920052A580 /* Network */,
-				0CB97C9429C6ED4C0052A580 /* ColorAssets.swift */,
 				0CB97CA229C743210052A580 /* Extensions.swift */,
 				0CB8CE6C29C97828002FF3A3 /* PopupView.xib */,
 				0CB8CE6E29C979E0002FF3A3 /* PopupView.swift */,
 				0C36B91329CABA50008BF283 /* LoadingIndicator.swift */,
-				0C36B91529CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -640,6 +654,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStorePreProject/Info.plist;
@@ -674,6 +689,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppStorePreProject/Info.plist;
