@@ -15,12 +15,6 @@
 		0C36B91029C9BF93008BF283 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B90F29C9BF93008BF283 /* AppInfo.swift */; };
 		0C36B91229C9C85E008BF283 /* AppStoreNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91129C9C85E008BF283 /* AppStoreNetworkManager.swift */; };
 		0C36B91429CABA50008BF283 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91329CABA50008BF283 /* LoadingIndicator.swift */; };
-		0C685BD529C84A6F000BA32F /* AppInfoBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */; };
-		0C685BD629C84A6F000BA32F /* AppInfoBasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */; };
-		0C685BD929C84D01000BA32F /* AppInfoLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */; };
-		0C685BDA29C84D01000BA32F /* AppInfoLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */; };
-		0C685BDD29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */; };
-		0C685BDE29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */; };
 		0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */; };
 		0CB8CE6929C85F60002FF3A3 /* AppUserRatingCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */; };
 		0CB8CE6B29C86443002FF3A3 /* AppUserRatingCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6A29C86443002FF3A3 /* AppUserRatingCountView.xib */; };
@@ -72,12 +66,6 @@
 		0C36B90F29C9BF93008BF283 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		0C36B91129C9C85E008BF283 /* AppStoreNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreNetworkManager.swift; sourceTree = "<group>"; };
 		0C36B91329CABA50008BF283 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
-		0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoBasicTableViewCell.swift; sourceTree = "<group>"; };
-		0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoBasicTableViewCell.xib; sourceTree = "<group>"; };
-		0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLinkTableViewCell.swift; sourceTree = "<group>"; };
-		0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoLinkTableViewCell.xib; sourceTree = "<group>"; };
-		0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoDetailTableViewCell.swift; sourceTree = "<group>"; };
-		0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoDetailTableViewCell.xib; sourceTree = "<group>"; };
 		0CA4578629C99342000AA9D3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserRatingCountView.swift; sourceTree = "<group>"; };
@@ -252,12 +240,6 @@
 				0CB97CA029C737BE0052A580 /* Detail.storyboard */,
 				0CB97CA429C74FF30052A580 /* ScreenShotCollectionViewCell.xib */,
 				0CB97CA629C750660052A580 /* ScreenShotCollectionViewCell.swift */,
-				0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */,
-				0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */,
-				0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */,
-				0C685BD829C84D01000BA32F /* AppInfoLinkTableViewCell.xib */,
-				0C685BDB29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift */,
-				0C685BDC29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib */,
 				0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */,
 				0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */,
 				0CB8CE6A29C86443002FF3A3 /* AppUserRatingCountView.xib */,
@@ -380,13 +362,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C685BD629C84A6F000BA32F /* AppInfoBasicTableViewCell.xib in Resources */,
 				0C36B90E29C9B1EC008BF283 /* profile.json in Resources */,
 				0CB8CE6D29C97828002FF3A3 /* PopupView.xib in Resources */,
 				0CB97C6B29C6E0940052A580 /* LaunchScreen.storyboard in Resources */,
 				0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */,
-				0C685BDA29C84D01000BA32F /* AppInfoLinkTableViewCell.xib in Resources */,
-				0C685BDE29C84F2D000BA32F /* AppInfoDetailTableViewCell.xib in Resources */,
 				0CB97CA529C74FF30052A580 /* ScreenShotCollectionViewCell.xib in Resources */,
 				0C36B90D29C9B1EC008BF283 /* star.json in Resources */,
 				0CB97C9929C71BBF0052A580 /* AppSearchCollectionViewCell.xib in Resources */,
@@ -439,8 +418,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C36B91429CABA50008BF283 /* LoadingIndicator.swift in Sources */,
-				0C685BDD29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift in Sources */,
-				0C685BD529C84A6F000BA32F /* AppInfoBasicTableViewCell.swift in Sources */,
 				0CB8CE6929C85F60002FF3A3 /* AppUserRatingCountView.swift in Sources */,
 				0C36B91229C9C85E008BF283 /* AppStoreNetworkManager.swift in Sources */,
 				0CB8CE6F29C979E0002FF3A3 /* PopupView.swift in Sources */,
@@ -451,7 +428,6 @@
 				0CB97CA329C743210052A580 /* Extensions.swift in Sources */,
 				0CB97C9529C6ED4C0052A580 /* ColorAssets.swift in Sources */,
 				0CB97C9B29C7214A0052A580 /* AppSearchCollectionViewCell.swift in Sources */,
-				0C685BD929C84D01000BA32F /* AppInfoLinkTableViewCell.swift in Sources */,
 				0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */,
 				0CB97C9029C6EA0F0052A580 /* MainViewController.swift in Sources */,
 				0CB97C9F29C736C80052A580 /* DetailViewController.swift in Sources */,

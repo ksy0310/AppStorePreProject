@@ -67,7 +67,24 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var appRatingCountView: AppUserRatingCountView!
     
     @IBOutlet var appInfoTitleView: UIView!
-    @IBOutlet var appInfoTableView: UITableView!
+    @IBOutlet var appInfoContentView: UIView!
+    
+    @IBOutlet var appInfoArtistNameLabel: UILabel!
+    @IBOutlet var appInfoSizeLabel: UILabel!
+    @IBOutlet var appInfoGenresLabel: UILabel!
+    @IBOutlet var appInfoPriceLabel: UILabel!
+    @IBOutlet var appInfoLanguageCodeLabel: UILabel!
+    @IBOutlet var appInfoLanguageCodeButton: UIButton!
+    @IBOutlet var appInfoLanguageCodeImageView: UIImageView!
+    @IBOutlet var appInfoLanguageCodeConstraintHeight: NSLayoutConstraint!
+    @IBOutlet var appInfoAdvisoryRatingLabel: UILabel!
+    @IBOutlet var appInfoAdvisoryRatingImageView: UIImageView!
+    @IBOutlet var appInfoAdvisoryRatingButton: UIButton!
+    @IBOutlet var appInfoAdvisoryRatingConstraintHeight: NSLayoutConstraint!
+    @IBOutlet var appInfoCopyrightLabel: UILabel!
+    
+    @IBOutlet var appInfoArtistViewUrlButton: UIButton!
+    @IBOutlet var appInfoTrackViewUrlButton: UIButton!
     
     // 데이터
     var appInfo:AppInfoResult!
@@ -83,7 +100,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         setupLayout()
         configureCollectionView()
-        configureTableView()
         setData()
     }
 
@@ -107,6 +123,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         isDescriptionOpenView = false
         appInfoDescriptionViewConstraintHeight.constant = 130
 
+        appInfoLanguageCodeConstraintHeight.constant = 44
+        appInfoAdvisoryRatingConstraintHeight.constant = 44
+        appInfoLanguageCodeImageView.isHidden = false
+        appInfoAdvisoryRatingImageView.isHidden = false
     }
     
     private func setData() {
@@ -115,7 +135,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         appDescriptionLabel.text = self.appInfo.description
         
         appInfoDescriptionLabel.frame.size = appInfoDescriptionLabel.intrinsicContentSize
-//        appInfoDescriptionLabel.sizeToFit()
         
         descriptionContentSize = appInfoDescriptionLabel.frame.height
         
@@ -149,7 +168,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         setSummaryRatingGraph(score: String(ratingCount))
         
-        summaryContentAdvisoryRatingLabel.text = self.appInfo.trackContentRating
+        summaryContentAdvisoryRatingLabel.text = self.appInfo.contentAdvisoryRating
         
         let genres = self.appInfo.genres ?? ["..."]
         var genresString = ""
@@ -172,6 +191,30 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         screenShotList = self.appInfo.screenshotUrls!
     
+        
+        //appInfoList Dictionary
+//        appInfoList["artistName"] = self.appInfo.artistName
+//        appInfoList["appSize"] = self.appInfo.fileSizeBytes
+//        appInfoList["genres"] = genresString
+//        appInfoList["languageCode"] = codeString
+//        appInfoList["price"] = self.appInfo.formattedPrice
+//        appInfoList["advisoryRating"] = self.appInfo.contentAdvisoryRating
+//        appInfoList["copyright"] = "©\(self.appInfo.artistName)"
+//        appInfoList["artistViewUrl"] = self.appInfo.artistViewUrl
+//        appInfoList["trackViewUrl"] = self.appInfo.trackViewUrl
+        
+        appInfoArtistNameLabel.text = self.appInfo.artistName
+        appInfoSizeLabel.text = self.appInfo.fileSizeBytes
+        appInfoGenresLabel.text = genresString
+        appInfoPriceLabel.text = self.appInfo.formattedPrice
+        appInfoLanguageCodeLabel.text = codeString
+        appInfoAdvisoryRatingLabel.text = self.appInfo.contentAdvisoryRating
+        appInfoCopyrightLabel.text = "©\(self.appInfo.artistName!)"
+        
+        appInfoLanguageCodeButton.addTarget(self, action: #selector(appInfoLanguageCodeButtonAction), for: .touchUpInside)
+        appInfoAdvisoryRatingButton.addTarget(self, action: #selector(appInfoAdvisoryRatingButtonAction), for: .touchUpInside)
+        appInfoArtistViewUrlButton.addTarget(self, action: #selector(appInfoArtistViewUrlButtonAction), for: .touchUpInside)
+        appInfoTrackViewUrlButton.addTarget(self, action: #selector(appInfoTrackViewUrlButtonAction), for: .touchUpInside)
     }
     
     // set summary Rating graph
@@ -282,6 +325,35 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.presentDetail(infoViewController)
     }
     
+    // action - appInfoLanguageCodeButton
+    @objc func appInfoLanguageCodeButtonAction(sender: UIButton!) {
+        appInfoLanguageCodeConstraintHeight.constant = 80
+        appInfoLanguageCodeImageView.isHidden = true
+    }
+    
+    // action - appInfoAdvisoryRatingButton
+    @objc func appInfoAdvisoryRatingButtonAction(sender: UIButton!) {
+        appInfoAdvisoryRatingConstraintHeight.constant = 80
+        appInfoAdvisoryRatingImageView.isHidden = true
+    }
+    
+    // action - appInfoArtistViewUrlButton
+    @objc func appInfoArtistViewUrlButtonAction(sender: UIButton!) {
+        var url = self.appInfo.artistViewUrl ?? "https://apps.apple.com/kr/app"
+        if let url = URL(string: url) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    // action - appInfoTrackViewUrlButton
+    @objc func appInfoTrackViewUrlButtonAction(sender: UIButton!) {
+        var url = self.appInfo.trackViewUrl ?? "https://apps.apple.com/kr/app"
+        if let url = URL(string: url) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    
     // 앱 설명 더보기/ 접기
     @IBAction func appInfoDescriptionButtonAction(_ sender: UIButton) {
         
@@ -347,35 +419,4 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: width, height: 330)
 
     }
-}
-
-// tableView
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func configureTableView() {
-        appInfoTableView.delegate = self
-        appInfoTableView.dataSource = self
-        
-        appInfoTableView.estimatedRowHeight = 50
-        appInfoTableView.rowHeight = UITableView.automaticDimension
-        
-        appInfoTableView.register(UINib(nibName: "AppInfoBasicTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoBasicTableViewCell")
-        appInfoTableView.register(UINib(nibName: "AppInfoLinkTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoLinkTableViewCell")
-        appInfoTableView.register(UINib(nibName: "AppInfoDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "AppInfoDetailTableViewCell")
-        
-        
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AppInfoDetailTableViewCell",for: indexPath) as! AppInfoDetailTableViewCell
-        
-        return cell
-    }
-    
-    
 }

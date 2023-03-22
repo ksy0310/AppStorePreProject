@@ -35,7 +35,9 @@ struct AppInfoResult: Codable {
     let trackContentRating: String?
     let languageCodesISO2A: [String]?
     let sellerUrl: String?
-    
+    let formattedPrice: String?
+    let fileSizeBytes: String?
+    let contentAdvisoryRating: String?
 }
 
 struct ApiResponse: Codable {
