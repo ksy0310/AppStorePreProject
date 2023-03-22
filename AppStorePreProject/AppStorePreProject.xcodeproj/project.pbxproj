@@ -15,6 +15,9 @@
 		0C36B91029C9BF93008BF283 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B90F29C9BF93008BF283 /* AppInfo.swift */; };
 		0C36B91229C9C85E008BF283 /* AppStoreNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91129C9C85E008BF283 /* AppStoreNetworkManager.swift */; };
 		0C36B91429CABA50008BF283 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91329CABA50008BF283 /* LoadingIndicator.swift */; };
+		0C36B91729CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91529CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld */; };
+		0C36B92229CAFCB9008BF283 /* RecentSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B92029CAFCB9008BF283 /* RecentSearchTableViewCell.swift */; };
+		0C36B92329CAFCB9008BF283 /* RecentSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */; };
 		0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */; };
 		0CB8CE6929C85F60002FF3A3 /* AppUserRatingCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */; };
 		0CB8CE6B29C86443002FF3A3 /* AppUserRatingCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6A29C86443002FF3A3 /* AppUserRatingCountView.xib */; };
@@ -23,7 +26,6 @@
 		0CB97C5C29C6E0920052A580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C5B29C6E0920052A580 /* AppDelegate.swift */; };
 		0CB97C5E29C6E0920052A580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C5D29C6E0920052A580 /* SceneDelegate.swift */; };
 		0CB97C6329C6E0920052A580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97C6129C6E0920052A580 /* Main.storyboard */; };
-		0CB97C6629C6E0920052A580 /* AppStorePreProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C6429C6E0920052A580 /* AppStorePreProject.xcdatamodeld */; };
 		0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97C6729C6E0940052A580 /* Assets.xcassets */; };
 		0CB97C6B29C6E0940052A580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB97C6929C6E0940052A580 /* LaunchScreen.storyboard */; };
 		0CB97C7629C6E0950052A580 /* AppStorePreProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB97C7529C6E0950052A580 /* AppStorePreProjectTests.swift */; };
@@ -66,6 +68,9 @@
 		0C36B90F29C9BF93008BF283 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		0C36B91129C9C85E008BF283 /* AppStoreNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreNetworkManager.swift; sourceTree = "<group>"; };
 		0C36B91329CABA50008BF283 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		0C36B91629CAF3AB008BF283 /* RecentSearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecentSearchModel.xcdatamodel; sourceTree = "<group>"; };
+		0C36B92029CAFCB9008BF283 /* RecentSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableViewCell.swift; sourceTree = "<group>"; };
+		0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchTableViewCell.xib; sourceTree = "<group>"; };
 		0CA4578629C99342000AA9D3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserRatingCountView.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		0CB97C5B29C6E0920052A580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CB97C5D29C6E0920052A580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0CB97C6229C6E0920052A580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0CB97C6529C6E0920052A580 /* AppStorePreProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStorePreProject.xcdatamodel; sourceTree = "<group>"; };
 		0CB97C6729C6E0940052A580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CB97C6A29C6E0940052A580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CB97C6C29C6E0940052A580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,7 +180,6 @@
 				0CB97C6729C6E0940052A580 /* Assets.xcassets */,
 				0CB97C6929C6E0940052A580 /* LaunchScreen.storyboard */,
 				0CB97C6C29C6E0940052A580 /* Info.plist */,
-				0CB97C6429C6E0920052A580 /* AppStorePreProject.xcdatamodeld */,
 			);
 			path = AppStorePreProject;
 			sourceTree = "<group>";
@@ -206,6 +209,8 @@
 				0CB97C8F29C6EA0F0052A580 /* MainViewController.swift */,
 				0CB97C9829C71BBF0052A580 /* AppSearchCollectionViewCell.xib */,
 				0CB97C9A29C7214A0052A580 /* AppSearchCollectionViewCell.swift */,
+				0C36B92029CAFCB9008BF283 /* RecentSearchTableViewCell.swift */,
+				0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				0CB8CE6C29C97828002FF3A3 /* PopupView.xib */,
 				0CB8CE6E29C979E0002FF3A3 /* PopupView.swift */,
 				0C36B91329CABA50008BF283 /* LoadingIndicator.swift */,
+				0C36B91529CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				0C36B90E29C9B1EC008BF283 /* profile.json in Resources */,
 				0CB8CE6D29C97828002FF3A3 /* PopupView.xib in Resources */,
 				0CB97C6B29C6E0940052A580 /* LaunchScreen.storyboard in Resources */,
+				0C36B92329CAFCB9008BF283 /* RecentSearchTableViewCell.xib in Resources */,
 				0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */,
 				0CB97CA529C74FF30052A580 /* ScreenShotCollectionViewCell.xib in Resources */,
 				0C36B90D29C9B1EC008BF283 /* star.json in Resources */,
@@ -424,13 +431,14 @@
 				0CB97C5C29C6E0920052A580 /* AppDelegate.swift in Sources */,
 				0C36B91029C9BF93008BF283 /* AppInfo.swift in Sources */,
 				0CB97C5E29C6E0920052A580 /* SceneDelegate.swift in Sources */,
-				0CB97C6629C6E0920052A580 /* AppStorePreProject.xcdatamodeld in Sources */,
 				0CB97CA329C743210052A580 /* Extensions.swift in Sources */,
+				0C36B92229CAFCB9008BF283 /* RecentSearchTableViewCell.swift in Sources */,
 				0CB97C9529C6ED4C0052A580 /* ColorAssets.swift in Sources */,
 				0CB97C9B29C7214A0052A580 /* AppSearchCollectionViewCell.swift in Sources */,
 				0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */,
 				0CB97C9029C6EA0F0052A580 /* MainViewController.swift in Sources */,
 				0CB97C9F29C736C80052A580 /* DetailViewController.swift in Sources */,
+				0C36B91729CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld in Sources */,
 				0CB97CA729C750660052A580 /* ScreenShotCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -839,13 +847,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		0CB97C6429C6E0920052A580 /* AppStorePreProject.xcdatamodeld */ = {
+		0C36B91529CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				0CB97C6529C6E0920052A580 /* AppStorePreProject.xcdatamodel */,
+				0C36B91629CAF3AB008BF283 /* RecentSearchModel.xcdatamodel */,
 			);
-			currentVersion = 0CB97C6529C6E0920052A580 /* AppStorePreProject.xcdatamodel */;
-			path = AppStorePreProject.xcdatamodeld;
+			currentVersion = 0C36B91629CAF3AB008BF283 /* RecentSearchModel.xcdatamodel */;
+			path = RecentSearchModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import CoreData
 
 class MainViewController: UIViewController {
 
@@ -23,6 +24,12 @@ class MainViewController: UIViewController {
     @IBOutlet var appSearchResultView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
+    @IBOutlet var recentSearchTitleViewConstraintHeight: NSLayoutConstraint!
+    @IBOutlet var recentSearchTitleView: UIView!
+    @IBOutlet var tableView: UITableView!
+    
+    var recentSearchString:[NSManagedObject] = []
+    
     let popupView = PopupView()
     var appData = [AppInfoResult]()
     let placeholderImage = UIImage(named: "noimage")
@@ -30,12 +37,29 @@ class MainViewController: UIViewController {
     //로딩
     let loading = LoadingIndicator.shared
     
+    var context: NSManagedObjectContext! {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLayout()
         configuereSearch()
         configureCollectionView()
+        configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "RecentSearch")
+        do {
+            recentSearchString = try context.fetch(fetchRequest)
+        }  catch let error as NSError {
+            print("\(error) : Could not fetch \(error.userInfo)")
+        }
     }
 
     // 검색 화면 구성
@@ -79,6 +103,8 @@ class MainViewController: UIViewController {
         
         recentSearchView.isHidden = false
         appSearchResultView.isHidden = true
+        
+        self.tableView.reloadData()
     }
     
     // action - 검색 필드
@@ -103,6 +129,17 @@ class MainViewController: UIViewController {
         popupView.showAlert(message: "안녕하세요!\nName : 김소영\nE-mail : ksy0310007@naver.com\nblog : https://dev-sso.tistory.com/", alertType: .profileAlert)
     }
     
+    func saveSearchString(searchString:String) {
+        let entity = NSEntityDescription.entity(forEntityName: "RecentSearch", in: context)!
+        let recentSearch = NSManagedObject(entity: entity, insertInto: context)
+        recentSearch.setValue(searchString, forKey: "searchString")
+        do {
+            try context.save()
+            self.recentSearchString.append(recentSearch)
+        } catch let error as NSError {
+            print("\(error) : Could not save \(error.userInfo)")
+        }
+    }
 }
 
 // textField -> 검색
@@ -110,6 +147,11 @@ extension MainViewController: UITextFieldDelegate {
     
     func configuereSearch() {
         searchTextField.delegate = self
+        self.searchTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldDidChange(_ sender: Any?) {
+        print("@@@ : \(self.searchTextField?.text)")
     }
     
 
@@ -120,6 +162,10 @@ extension MainViewController: UITextFieldDelegate {
         if textField.text != nil {
             recentSearchView.isHidden = true
             appSearchResultView.isHidden = false
+            
+            saveSearchString(searchString: textField.text!)
+            
+            self.tableView.reloadData()
             
             self.appData.removeAll()
             AppStoreNetworkManager.shared.getAppData(searchText: textField.text!) { data in
@@ -224,4 +270,29 @@ extension MainViewController: PopupViewDelegate {
     func onOkButtonAction() {
         return
     }
+}
+
+// RecentSearch
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(UINib(nibName: "RecentSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentSearchTableViewCell")
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recentSearchString.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecentSearchTableViewCell", for: indexPath) as! RecentSearchTableViewCell
+        cell.selectionStyle = .none
+        cell.titleLabel.text = recentSearchString[indexPath.row].value(forKey: "searchString") as? String
+        return cell
+    }
+    
+    
 }
