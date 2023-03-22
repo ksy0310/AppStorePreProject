@@ -712,6 +712,11 @@
                         <outlet property="miniDownloadButton" destination="Vq3-wn-dtS" id="l56-3G-nUh"/>
                         <outlet property="navigationView" destination="Fsl-ks-vnX" id="YFw-Ac-30f"/>
                         <outlet property="screenShotCollectionView" destination="3vm-15-Ia7" id="cMz-2F-0tk"/>
+                        <outlet property="starFiveImageView" destination="Ktj-Ft-Em5" id="cuY-Bq-3hd"/>
+                        <outlet property="starFourImageView" destination="uyl-9p-PYu" id="rrH-wa-tIv"/>
+                        <outlet property="starOneImageView" destination="cHV-fm-ggs" id="w1U-5P-5uR"/>
+                        <outlet property="starThreeImageView" destination="e9d-qX-qUj" id="KdF-DG-VHc"/>
+                        <outlet property="starTwoImageView" destination="Jwr-Tq-FDp" id="9L7-Ye-77K"/>
                         <outlet property="summaryContentAdvisoryRatingLabel" destination="K7n-3f-yVC" id="2r5-LL-5Bi"/>
                         <outlet property="summaryContentAdvisoryRatingView" destination="pGx-fg-rEn" id="ZAG-m2-07t"/>
                         <outlet property="summaryGenresNumberLabel" destination="Tj8-C4-zop" id="A2O-zB-GIF"/>
@@ -791,16 +796,16 @@
                                         <rect key="frame" x="0.0" y="160" width="393" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탭하여 평가하기:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVE-gU-vx9">
-                                                <rect key="frame" x="20" y="30" width="113" height="20.333333333333329"/>
+                                                <rect key="frame" x="20" y="30" width="133" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="subTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="9gB-Os-I8l">
-                                                <rect key="frame" x="143" y="25" width="230" height="30"/>
+                                                <rect key="frame" x="163" y="25" width="210" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcL-xB-Dgh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="37.333333333333336" height="30"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="bluestar_empty"/>
                                                         <connections>
@@ -808,7 +813,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGE-He-ICa">
-                                                        <rect key="frame" x="47.333333333333343" y="0.0" width="41" height="30"/>
+                                                        <rect key="frame" x="43.333333333333343" y="0.0" width="37" height="30"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="bluestar_empty"/>
                                                         <connections>
@@ -816,7 +821,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gc-Hz-xK8">
-                                                        <rect key="frame" x="94.333333333333343" y="0.0" width="41.333333333333343" height="30"/>
+                                                        <rect key="frame" x="86.333333333333343" y="0.0" width="37.333333333333343" height="30"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="bluestar_empty"/>
                                                         <connections>
@@ -824,7 +829,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSh-L7-2OX">
-                                                        <rect key="frame" x="141.66666666666669" y="0.0" width="41" height="30"/>
+                                                        <rect key="frame" x="129.66666666666669" y="0.0" width="37" height="30"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="bluestar_empty"/>
                                                         <connections>
@@ -832,7 +837,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lk9-Vm-hST">
-                                                        <rect key="frame" x="188.66666666666669" y="0.0" width="41.333333333333343" height="30"/>
+                                                        <rect key="frame" x="172.66666666666669" y="0.0" width="37.333333333333343" height="30"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="bluestar_empty"/>
                                                         <connections>
@@ -841,7 +846,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="230" id="99f-LW-uSM"/>
+                                                    <constraint firstAttribute="width" constant="210" id="99f-LW-uSM"/>
                                                     <constraint firstAttribute="height" constant="30" id="QAQ-P1-kzE"/>
                                                 </constraints>
                                             </stackView>

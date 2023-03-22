@@ -35,6 +35,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var summaryReviewCountLabel: UILabel!
     @IBOutlet var summaryRatingCountLabel: UILabel!
     
+    @IBOutlet var starOneImageView: UIImageView!
+    @IBOutlet var starTwoImageView: UIImageView!
+    @IBOutlet var starThreeImageView: UIImageView!
+    @IBOutlet var starFourImageView: UIImageView!
+    @IBOutlet var starFiveImageView: UIImageView!
+    
     @IBOutlet var summaryContentAdvisoryRatingView: UIView!
     @IBOutlet var summaryContentAdvisoryRatingLabel: UILabel!
     
@@ -145,6 +151,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         summaryReviewCountLabel.text = "\(result)개의 평가"
         summaryRatingCountLabel.text = String(ratingCount)
         
+        setSummaryRatingGraph(score: String(ratingCount))
         
         summaryContentAdvisoryRatingLabel.text = self.appInfo.trackContentRating
         
@@ -172,6 +179,53 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         screenShotList = self.appInfo.screenshotUrls!
     
+    }
+    
+    // set summary Rating graph
+    private func setSummaryRatingGraph(score: String) {
+        switch score {
+            case "5.0":
+                starOneImageView.image = UIImage(named: "star")
+                starTwoImageView.image = UIImage(named: "star")
+                starThreeImageView.image = UIImage(named: "star")
+                starFourImageView.image = UIImage(named: "star")
+                starFiveImageView.image = UIImage(named: "star")
+                
+            case "4.0":
+                starOneImageView.image = UIImage(named: "star")
+                starTwoImageView.image = UIImage(named: "star")
+                starThreeImageView.image = UIImage(named: "star")
+                starFourImageView.image = UIImage(named: "star")
+                starFiveImageView.image = UIImage(named: "star_empty")
+                
+            case "3.0":
+                starOneImageView.image = UIImage(named: "star")
+                starTwoImageView.image = UIImage(named: "star")
+                starThreeImageView.image = UIImage(named: "star")
+                starFourImageView.image = UIImage(named: "star_empty")
+                starFiveImageView.image = UIImage(named: "star_empty")
+                
+            case "2.0":
+                starOneImageView.image = UIImage(named: "star")
+                starTwoImageView.image = UIImage(named: "star")
+                starThreeImageView.image = UIImage(named: "star_empty")
+                starFourImageView.image = UIImage(named: "star_empty")
+                starFiveImageView.image = UIImage(named: "star_empty")
+                
+            case "1.0":
+                starOneImageView.image = UIImage(named: "star")
+                starTwoImageView.image = UIImage(named: "star_empty")
+                starThreeImageView.image = UIImage(named: "star_empty")
+                starFourImageView.image = UIImage(named: "star_empty")
+                starFiveImageView.image = UIImage(named: "star_empty")
+                
+            default:
+                starOneImageView.image = UIImage(named: "star_empty")
+                starTwoImageView.image = UIImage(named: "star_empty")
+                starThreeImageView.image = UIImage(named: "star_empty")
+                starFourImageView.image = UIImage(named: "star_empty")
+                starFiveImageView.image = UIImage(named: "star_empty")
+        }
     }
     
     

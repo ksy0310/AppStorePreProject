@@ -52,24 +52,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="120" height="112"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukE-F5-ITj">
-                                    <rect key="frame" x="24.333333333333336" y="10" width="71.333333333333314" height="55"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="46"/>
+                                    <rect key="frame" x="23" y="20" width="74.333333333333314" height="72"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
                                     <color key="textColor" name="mainTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(최고 5점)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV8-OR-cke">
-                                    <rect key="frame" x="24" y="75" width="72" height="20.333333333333329"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <color key="textColor" name="subTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="ukE-F5-ITj" firstAttribute="top" secondItem="vVQ-6y-Hz1" secondAttribute="top" constant="10" id="Bco-8U-5mj"/>
-                                <constraint firstItem="HV8-OR-cke" firstAttribute="centerX" secondItem="vVQ-6y-Hz1" secondAttribute="centerX" id="PWN-JN-2fb"/>
+                                <constraint firstItem="ukE-F5-ITj" firstAttribute="top" secondItem="vVQ-6y-Hz1" secondAttribute="top" constant="20" id="Bco-8U-5mj"/>
+                                <constraint firstAttribute="bottom" secondItem="ukE-F5-ITj" secondAttribute="bottom" constant="20" id="NvW-Fc-VEd"/>
                                 <constraint firstAttribute="width" constant="120" id="p0J-R7-tVp"/>
-                                <constraint firstItem="HV8-OR-cke" firstAttribute="top" secondItem="ukE-F5-ITj" secondAttribute="bottom" constant="10" id="vMC-8U-D6F"/>
                                 <constraint firstItem="ukE-F5-ITj" firstAttribute="centerX" secondItem="vVQ-6y-Hz1" secondAttribute="centerX" id="xjw-PY-1OV"/>
                             </constraints>
                         </view>
@@ -130,7 +123,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="v0h-RK-WXc">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="12.666666666666666"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="hr3-QQ-ncj">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="hr3-QQ-ncj">
                                                                     <rect key="frame" x="0.0" y="0.0" width="12" height="12.666666666666666"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-sv-zU4">
@@ -172,10 +165,10 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XFw-7Y-jyb">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="13"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Y80-10-anJ">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="Y80-10-anJ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="12" height="13"/>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-GA-b9v">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-GA-b9v">
                                                                     <rect key="frame" x="12" y="0.0" width="12" height="13"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Ahc-Sw-cAX">
@@ -214,13 +207,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WwI-RJ-ybJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="12.666666666666666"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-uq-l0a">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="WR1-uq-l0a">
                                                                     <rect key="frame" x="0.0" y="0.0" width="12" height="12.666666666666666"/>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Mrv-aq-dzX">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="Mrv-aq-dzX">
                                                                     <rect key="frame" x="12" y="0.0" width="12" height="12.666666666666666"/>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="oXZ-Ry-O2Z">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="oXZ-Ry-O2Z">
                                                                     <rect key="frame" x="24" y="0.0" width="12" height="12.666666666666666"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-yI-bhA">
@@ -256,16 +249,16 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iKS-Dj-dcO">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="13"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="gwE-0s-YuY">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="gwE-0s-YuY">
                                                                     <rect key="frame" x="0.0" y="0.0" width="12" height="13"/>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="jpY-fq-WKz">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="jpY-fq-WKz">
                                                                     <rect key="frame" x="12" y="0.0" width="12" height="13"/>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="F14-gz-2ar">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="F14-gz-2ar">
                                                                     <rect key="frame" x="24" y="0.0" width="12" height="13"/>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="doD-HN-4yz">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitestar" translatesAutoresizingMaskIntoConstraints="NO" id="doD-HN-4yz">
                                                                     <rect key="frame" x="36" y="0.0" width="12" height="13"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-s7-ELD">
@@ -338,7 +331,7 @@
     </objects>
     <resources>
         <image name="star" width="128" height="128"/>
-        <image name="star_empty" width="128" height="128"/>
+        <image name="whitestar" width="128" height="128"/>
         <namedColor name="mainTextColor">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
