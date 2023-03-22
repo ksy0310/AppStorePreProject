@@ -63,4 +63,14 @@ final class AppStorePreProjectTests: XCTestCase {
         XCTAssertEqual(result, "11,260", "천 단위마다 ,찍기 완료.")
     }
 
+    func testBytes() throws {
+        var bytes = Double(307005440)
+        var conversion = 0.0
+
+        bytes = bytes / (1024 * 1024)
+        conversion = round(bytes * 10) / 10
+            
+        XCTAssertEqual(conversion, 292.8, "MB 변환 완료")
+    
+    }
 }

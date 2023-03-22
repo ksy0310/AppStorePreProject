@@ -1010,7 +1010,7 @@
                                                                 <rect key="frame" x="0.0" y="352" width="393" height="44"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 처리방침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgn-d2-8k0">
-                                                                        <rect key="frame" x="20" y="12" width="313" height="20"/>
+                                                                        <rect key="frame" x="20" y="12" width="316" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="9LJ-1M-uAk"/>
                                                                         </constraints>
@@ -1026,7 +1026,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="tBG-af-63b">
-                                                                        <rect key="frame" x="353" y="12" width="20" height="20"/>
+                                                                        <rect key="frame" x="356" y="12" width="20" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="tBG-af-63b" secondAttribute="height" multiplier="1:1" id="MV4-5g-uCg"/>
                                                                             <constraint firstAttribute="width" constant="20" id="vGY-JW-09v"/>
@@ -1041,7 +1041,7 @@
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="b21-8B-CER" firstAttribute="top" secondItem="Opk-H3-iME" secondAttribute="top" id="6DR-Pq-djS"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="tBG-af-63b" secondAttribute="trailing" constant="20" id="7PX-ao-onq"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="tBG-af-63b" secondAttribute="trailing" constant="17" id="7PX-ao-onq"/>
                                                                     <constraint firstItem="tBG-af-63b" firstAttribute="leading" secondItem="fgn-d2-8k0" secondAttribute="trailing" constant="20" id="8La-Wt-b1F"/>
                                                                     <constraint firstItem="b21-8B-CER" firstAttribute="leading" secondItem="Opk-H3-iME" secondAttribute="leading" id="B3l-Nw-h7Y"/>
                                                                     <constraint firstItem="YNv-UP-yaS" firstAttribute="top" secondItem="b21-8B-CER" secondAttribute="bottom" id="T8a-E1-3xT"/>

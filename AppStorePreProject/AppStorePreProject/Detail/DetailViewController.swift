@@ -91,6 +91,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     let placeholderImage = UIImage(named: "noimage")
     
     var linkUrl = ""
+    var artistViewUrl = ""
+    var trackViewUrl = ""
     var sendReviewCount = ""
     var sendRatingCount = ""
     var descriptionContentSize = CGFloat(130.0)
@@ -190,26 +192,24 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         summaryLanguageLabel.text = codeString
         
         screenShotList = self.appInfo.screenshotUrls!
-    
-        
-        //appInfoList Dictionary
-//        appInfoList["artistName"] = self.appInfo.artistName
-//        appInfoList["appSize"] = self.appInfo.fileSizeBytes
-//        appInfoList["genres"] = genresString
-//        appInfoList["languageCode"] = codeString
-//        appInfoList["price"] = self.appInfo.formattedPrice
-//        appInfoList["advisoryRating"] = self.appInfo.contentAdvisoryRating
-//        appInfoList["copyright"] = "©\(self.appInfo.artistName)"
-//        appInfoList["artistViewUrl"] = self.appInfo.artistViewUrl
-//        appInfoList["trackViewUrl"] = self.appInfo.trackViewUrl
         
         appInfoArtistNameLabel.text = self.appInfo.artistName
-        appInfoSizeLabel.text = self.appInfo.fileSizeBytes
+        
+        var bytes = Double(self.appInfo.fileSizeBytes!)!
+        var conversion = 0.0
+
+        bytes = bytes / (1024 * 1024)
+        conversion = round(bytes * 10) / 10
+        
+        appInfoSizeLabel.text = "\(conversion)MB"
         appInfoGenresLabel.text = genresString
         appInfoPriceLabel.text = self.appInfo.formattedPrice
         appInfoLanguageCodeLabel.text = codeString
         appInfoAdvisoryRatingLabel.text = self.appInfo.contentAdvisoryRating
         appInfoCopyrightLabel.text = "©\(self.appInfo.artistName!)"
+        
+        artistViewUrl = self.appInfo.artistViewUrl!
+        trackViewUrl = self.appInfo.trackViewUrl!
         
         appInfoLanguageCodeButton.addTarget(self, action: #selector(appInfoLanguageCodeButtonAction), for: .touchUpInside)
         appInfoAdvisoryRatingButton.addTarget(self, action: #selector(appInfoAdvisoryRatingButtonAction), for: .touchUpInside)
@@ -339,16 +339,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - appInfoArtistViewUrlButton
     @objc func appInfoArtistViewUrlButtonAction(sender: UIButton!) {
-        var url = self.appInfo.artistViewUrl ?? "https://apps.apple.com/kr/app"
-        if let url = URL(string: url) {
+        print("@@@ artistViewUrl = \(artistViewUrl)")
+        if let url = URL(string: artistViewUrl) {
             UIApplication.shared.open(url, options: [:])
         }
     }
     
     // action - appInfoTrackViewUrlButton
     @objc func appInfoTrackViewUrlButtonAction(sender: UIButton!) {
-        var url = self.appInfo.trackViewUrl ?? "https://apps.apple.com/kr/app"
-        if let url = URL(string: url) {
+        print("@@@ trackViewUrl = \(trackViewUrl)")
+        if let url = URL(string: trackViewUrl) {
             UIApplication.shared.open(url, options: [:])
         }
     }
