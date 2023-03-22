@@ -236,9 +236,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     // action - share Button
     @IBAction func shareButtonAction(_ sender: UIButton) {
-//        let shareLink: String = linkUrl
         var shareObject = [Any]()
-
         shareObject.append(linkUrl)
 
         let activityViewController = UIActivityViewController(activityItems: shareObject, applicationActivities: nil)
