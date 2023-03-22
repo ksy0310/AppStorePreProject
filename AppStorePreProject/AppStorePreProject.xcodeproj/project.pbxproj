@@ -14,6 +14,7 @@
 		0C36B90E29C9B1EC008BF283 /* profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C36B90C29C9B1EC008BF283 /* profile.json */; };
 		0C36B91029C9BF93008BF283 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B90F29C9BF93008BF283 /* AppInfo.swift */; };
 		0C36B91229C9C85E008BF283 /* AppStoreNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91129C9C85E008BF283 /* AppStoreNetworkManager.swift */; };
+		0C36B91429CABA50008BF283 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91329CABA50008BF283 /* LoadingIndicator.swift */; };
 		0C685BD529C84A6F000BA32F /* AppInfoBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */; };
 		0C685BD629C84A6F000BA32F /* AppInfoBasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */; };
 		0C685BD929C84D01000BA32F /* AppInfoLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */; };
@@ -70,6 +71,7 @@
 		0C36B90C29C9B1EC008BF283 /* profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = profile.json; path = ../../../../../Desktop/appstore_icon/profile.json; sourceTree = "<group>"; };
 		0C36B90F29C9BF93008BF283 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		0C36B91129C9C85E008BF283 /* AppStoreNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreNetworkManager.swift; sourceTree = "<group>"; };
+		0C36B91329CABA50008BF283 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		0C685BD329C84A6F000BA32F /* AppInfoBasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoBasicTableViewCell.swift; sourceTree = "<group>"; };
 		0C685BD429C84A6F000BA32F /* AppInfoBasicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppInfoBasicTableViewCell.xib; sourceTree = "<group>"; };
 		0C685BD729C84D01000BA32F /* AppInfoLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLinkTableViewCell.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				0CB97CA229C743210052A580 /* Extensions.swift */,
 				0CB8CE6C29C97828002FF3A3 /* PopupView.xib */,
 				0CB8CE6E29C979E0002FF3A3 /* PopupView.swift */,
+				0C36B91329CABA50008BF283 /* LoadingIndicator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C36B91429CABA50008BF283 /* LoadingIndicator.swift in Sources */,
 				0C685BDD29C84F2D000BA32F /* AppInfoDetailTableViewCell.swift in Sources */,
 				0C685BD529C84A6F000BA32F /* AppInfoBasicTableViewCell.swift in Sources */,
 				0CB8CE6929C85F60002FF3A3 /* AppUserRatingCountView.swift in Sources */,

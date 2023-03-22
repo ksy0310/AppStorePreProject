@@ -27,6 +27,9 @@ class MainViewController: UIViewController {
     var appData = [AppInfoResult]()
     let placeholderImage = UIImage(named: "noimage")
     
+    //로딩
+    let loading = LoadingIndicator.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -113,7 +116,7 @@ extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // 검색
         textField.resignFirstResponder()
-        
+        self.loading.showIndicator()
         if textField.text != nil {
             recentSearchView.isHidden = true
             appSearchResultView.isHidden = false
@@ -127,16 +130,19 @@ extension MainViewController: UITextFieldDelegate {
                         // collectionview 제일 위로 이동
                         self.collectionView.scrollToItem(at: IndexPath(row: -1, section: 0), at: .top, animated: true)
                         self.collectionView.reloadData()
+                        
+                        self.loading.hideIndicator()
                     }
                 } else {
                     print("Network fail", data)
+                    self.loading.hideIndicator()
                 }
-                
             }
-            
             
         }else{
             // 검색어가 없을때 알럿
+            self.loading.hideIndicator()
+            
             let alert = UIAlertController(title: "알림", message: "검색어를 입력하세요.", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "확인", style: .default)
             alert.addAction(okAction)
