@@ -29,6 +29,9 @@ class MainViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var recentSearchString:[NSManagedObject] = []
+    var matchSearchString:[NSManagedObject] = []
+    
+    var isBeginEditing = false
     
     let popupView = PopupView()
     var appData = [AppInfoResult]()
@@ -61,14 +64,23 @@ class MainViewController: UIViewController {
             print("\(error) : Could not fetch \(error.userInfo)")
         }
     }
+    
+    func filter(text:String) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "RecentSearch")
+        fetchRequest.predicate = NSPredicate(format: "searchString CONTAINS %@", text)
+        do{
+            matchSearchString = try context.fetch(fetchRequest)
+            self.tableView.reloadData()
+        } catch let error{
+            print("\(error) : Could not search")
+        }
+    }
 
     // 검색 화면 구성
     private func setupLayout() {
         popupView.delegate = self
         self.searchTilteViewConstraintHeight.constant = 100
         self.deleteButtonConstraintWidth.constant = 0
-        
-        self.saveSearchString(searchString: "카카오뱅크")
         
         // profileImageView 클릭시 팝업 -> 내 소개
         profileButton.addTarget(self, action: #selector(profileImageViewAction), for: .touchUpInside)
@@ -105,6 +117,9 @@ class MainViewController: UIViewController {
         recentSearchView.isHidden = false
         appSearchResultView.isHidden = true
         
+        isBeginEditing = false
+        matchSearchString.removeAll()
+        
         self.tableView.reloadData()
     }
     
@@ -135,6 +150,7 @@ class MainViewController: UIViewController {
     }
     
     func saveSearchString(searchString:String) {
+        
         let entity = NSEntityDescription.entity(forEntityName: "RecentSearch", in: context)!
         let recentSearch = NSManagedObject(entity: entity, insertInto: context)
         recentSearch.setValue(searchString, forKey: "searchString")
@@ -156,12 +172,22 @@ extension MainViewController: UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(_ sender: Any?) {
-        print("@@@ : \(self.searchTextField?.text)")
+        isBeginEditing = true
+        recentSearchTitleView.isHidden = true
+        recentSearchTitleViewConstraintHeight.constant = 0
+        
+        let searchText = self.searchTextField?.text
+        if searchText != nil && searchText != "" {
+            filter(text: (self.searchTextField?.text)!)
+        }
     }
-    
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // 검색
+        isBeginEditing = false
+        recentSearchTitleView.isHidden = false
+        recentSearchTitleViewConstraintHeight.constant = 56
+        
         textField.resignFirstResponder()
         self.loading.showIndicator()
         if textField.text != nil {
@@ -283,25 +309,46 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "RecentSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentSearchTableViewCell")
+        tableView.register(UINib(nibName: "MatchSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "MatchSearchTableViewCell")
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentSearchString.count
+        if isBeginEditing {
+            return matchSearchString.count
+        } else {
+            return recentSearchString.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecentSearchTableViewCell", for: indexPath) as! RecentSearchTableViewCell
-        cell.selectionStyle = .none
-        cell.titleLabel.text = recentSearchString[indexPath.row].value(forKey: "searchString") as? String
-        return cell
+        if isBeginEditing {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MatchSearchTableViewCell", for: indexPath) as! MatchSearchTableViewCell
+            cell.selectionStyle = .none
+            cell.titleLabel.text = matchSearchString[indexPath.row].value(forKey: "searchString") as? String
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentSearchTableViewCell", for: indexPath) as! RecentSearchTableViewCell
+            cell.selectionStyle = .none
+            cell.titleLabel.text = recentSearchString[indexPath.row].value(forKey: "searchString") as? String
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = recentSearchString[indexPath.row].value(forKey: "searchString") as? String
-        searchBeginAnimation()
-        searchTextField.text = data!
-        searchData(searcText: data!)
+        
+        if isBeginEditing {
+            let data = matchSearchString[indexPath.row].value(forKey: "searchString") as? String
+            searchBeginAnimation()
+            searchTextField.text = data!
+            searchData(searcText: data!)
+        } else {
+            let data = recentSearchString[indexPath.row].value(forKey: "searchString") as? String
+            searchBeginAnimation()
+            searchTextField.text = data!
+            searchData(searcText: data!)
+        }
+        searchTextField.resignFirstResponder()
     }
     
 }

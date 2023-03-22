@@ -18,6 +18,8 @@
 		0C36B91729CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B91529CAF3AB008BF283 /* RecentSearchModel.xcdatamodeld */; };
 		0C36B92229CAFCB9008BF283 /* RecentSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B92029CAFCB9008BF283 /* RecentSearchTableViewCell.swift */; };
 		0C36B92329CAFCB9008BF283 /* RecentSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */; };
+		0C36B92629CB1CE9008BF283 /* MatchSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36B92429CB1CE9008BF283 /* MatchSearchTableViewCell.swift */; };
+		0C36B92729CB1CE9008BF283 /* MatchSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C36B92529CB1CE9008BF283 /* MatchSearchTableViewCell.xib */; };
 		0CB8CE6729C85DB1002FF3A3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */; };
 		0CB8CE6929C85F60002FF3A3 /* AppUserRatingCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */; };
 		0CB8CE6B29C86443002FF3A3 /* AppUserRatingCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB8CE6A29C86443002FF3A3 /* AppUserRatingCountView.xib */; };
@@ -71,6 +73,8 @@
 		0C36B91629CAF3AB008BF283 /* RecentSearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecentSearchModel.xcdatamodel; sourceTree = "<group>"; };
 		0C36B92029CAFCB9008BF283 /* RecentSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableViewCell.swift; sourceTree = "<group>"; };
 		0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchTableViewCell.xib; sourceTree = "<group>"; };
+		0C36B92429CB1CE9008BF283 /* MatchSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSearchTableViewCell.swift; sourceTree = "<group>"; };
+		0C36B92529CB1CE9008BF283 /* MatchSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchSearchTableViewCell.xib; sourceTree = "<group>"; };
 		0CA4578629C99342000AA9D3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		0CB8CE6629C85DB1002FF3A3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0CB8CE6829C85F60002FF3A3 /* AppUserRatingCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserRatingCountView.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				0CB97C9A29C7214A0052A580 /* AppSearchCollectionViewCell.swift */,
 				0C36B92029CAFCB9008BF283 /* RecentSearchTableViewCell.swift */,
 				0C36B92129CAFCB9008BF283 /* RecentSearchTableViewCell.xib */,
+				0C36B92429CB1CE9008BF283 /* MatchSearchTableViewCell.swift */,
+				0C36B92529CB1CE9008BF283 /* MatchSearchTableViewCell.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				0CB97C6829C6E0940052A580 /* Assets.xcassets in Resources */,
 				0CB97CA529C74FF30052A580 /* ScreenShotCollectionViewCell.xib in Resources */,
 				0C36B90D29C9B1EC008BF283 /* star.json in Resources */,
+				0C36B92729CB1CE9008BF283 /* MatchSearchTableViewCell.xib in Resources */,
 				0CB97C9929C71BBF0052A580 /* AppSearchCollectionViewCell.xib in Resources */,
 				0CB97CA129C737BE0052A580 /* Detail.storyboard in Resources */,
 				0CB8CE6B29C86443002FF3A3 /* AppUserRatingCountView.xib in Resources */,
@@ -430,6 +437,7 @@
 				0CB8CE6F29C979E0002FF3A3 /* PopupView.swift in Sources */,
 				0CB97C5C29C6E0920052A580 /* AppDelegate.swift in Sources */,
 				0C36B91029C9BF93008BF283 /* AppInfo.swift in Sources */,
+				0C36B92629CB1CE9008BF283 /* MatchSearchTableViewCell.swift in Sources */,
 				0CB97C5E29C6E0920052A580 /* SceneDelegate.swift in Sources */,
 				0CB97CA329C743210052A580 /* Extensions.swift in Sources */,
 				0C36B92229CAFCB9008BF283 /* RecentSearchTableViewCell.swift in Sources */,

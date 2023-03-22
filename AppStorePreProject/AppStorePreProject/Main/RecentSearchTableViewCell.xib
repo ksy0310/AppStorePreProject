@@ -19,12 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T65-7C-EbY">
-                        <rect key="frame" x="20" y="11.666666666666664" width="280" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="20" y="12.333333333333334" width="280" height="19.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" name="pointBlueColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="T65-7C-EbY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="55O-wE-6ha"/>
                     <constraint firstAttribute="trailing" secondItem="T65-7C-EbY" secondAttribute="trailing" constant="20" id="9Gp-1E-5Mm"/>
