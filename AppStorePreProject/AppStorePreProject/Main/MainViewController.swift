@@ -68,6 +68,7 @@ class MainViewController: UIViewController {
         self.searchTilteViewConstraintHeight.constant = 100
         self.deleteButtonConstraintWidth.constant = 0
         
+        self.saveSearchString(searchString: "카카오뱅크")
         
         // profileImageView 클릭시 팝업 -> 내 소개
         profileButton.addTarget(self, action: #selector(profileImageViewAction), for: .touchUpInside)
@@ -109,6 +110,10 @@ class MainViewController: UIViewController {
     
     // action - 검색 필드
     @IBAction func searchTextFieldAction(_ sender: UITextField) {
+        searchBeginAnimation()
+    }
+    
+    func searchBeginAnimation() {
         // 검색 필드 포커스시 -> searchTitleview height 0 (anim)
         //               -> 취소버튼 보이기
         //               -> 키보드 올라오기
@@ -160,30 +165,10 @@ extension MainViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         self.loading.showIndicator()
         if textField.text != nil {
-            recentSearchView.isHidden = true
-            appSearchResultView.isHidden = false
-            
             saveSearchString(searchString: textField.text!)
-            
             self.tableView.reloadData()
             
-            self.appData.removeAll()
-            AppStoreNetworkManager.shared.getAppData(searchText: textField.text!) { data in
-                
-                if data != nil {
-                    self.appData = data
-                    DispatchQueue.main.async {
-                        // collectionview 제일 위로 이동
-                        self.collectionView.scrollToItem(at: IndexPath(row: -1, section: 0), at: .top, animated: true)
-                        self.collectionView.reloadData()
-                        
-                        self.loading.hideIndicator()
-                    }
-                } else {
-                    print("Network fail", data)
-                    self.loading.hideIndicator()
-                }
-            }
+            searchData(searcText: textField.text!)
             
         }else{
             // 검색어가 없을때 알럿
@@ -195,6 +180,24 @@ extension MainViewController: UITextFieldDelegate {
             present(alert, animated: false, completion: nil)
         }
         return true
+    }
+    
+    func searchData(searcText:String) {
+        
+        recentSearchView.isHidden = true
+        appSearchResultView.isHidden = false
+        
+        self.appData.removeAll()
+        AppStoreNetworkManager.shared.getAppData(searchText: searcText) { data in
+            self.appData = data
+            DispatchQueue.main.async {
+                // collectionview 제일 위로 이동
+                self.collectionView.scrollToItem(at: IndexPath(row: -1, section: 0), at: .top, animated: true)
+                self.collectionView.reloadData()
+                        
+                self.loading.hideIndicator()
+            }
+        }
     }
 }
 
@@ -294,5 +297,11 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = recentSearchString[indexPath.row].value(forKey: "searchString") as? String
+        searchBeginAnimation()
+        searchTextField.text = data!
+        searchData(searcText: data!)
+    }
     
 }
