@@ -76,6 +76,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var linkUrl = ""
     var sendReviewCount = ""
     var sendRatingCount = ""
+    var descriptionContentSize = CGFloat(130.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,11 +111,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     private func setData() {
         
-        appInfoDescriptionLabel.frame.size = appInfoDescriptionLabel.intrinsicContentSize
-        appInfoDescriptionLabel.sizeToFit()
-        
         appInfoDescriptionLabel.text = self.appInfo.description
         appDescriptionLabel.text = self.appInfo.description
+        
+        appInfoDescriptionLabel.frame.size = appInfoDescriptionLabel.intrinsicContentSize
+//        appInfoDescriptionLabel.sizeToFit()
+        
+        descriptionContentSize = appInfoDescriptionLabel.frame.height
         
         let iconUrl = URL(string: self.appInfo.artworkUrl60!)
         appIconImageView.kf.setImage(with: iconUrl,placeholder: placeholderImage)
@@ -123,13 +126,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         appNameLabel.text = self.appInfo.trackName
         
         linkUrl = self.appInfo.trackViewUrl ?? "https://apps.apple.com/kr/app"
-        
-        
-//        if appInfoDescriptionLabel.frame.height < 130 {
-//            appInfoDescriptionButton.isHidden = true
-//        } else {
-//            appInfoDescriptionButton.isHidden = false
-//        }
         
         
         let ratingCount = round((self.appInfo.averageUserRating! * 100) / 100)
@@ -173,9 +169,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         summaryLanguageLabel.text = codeString
-        
-        //TODO summary star graph!
-        
         
         screenShotList = self.appInfo.screenshotUrls!
     
@@ -293,19 +286,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func appInfoDescriptionButtonAction(_ sender: UIButton) {
         
         if isDescriptionOpenView {
+            appInfoDescriptionViewConstraintHeight.constant = descriptionContentSize
+            appInfoDescriptionButton.setTitle("접기", for: .normal)
+            isDescriptionOpenView = false
+            
+        } else {
             appInfoDescriptionViewConstraintHeight.constant = 130
             appInfoDescriptionButton.setTitle("더보기", for: .normal)
-            isDescriptionOpenView = false
-        } else {
-            appInfoDescriptionViewConstraintHeight.constant = appInfoDescriptionLabel.frame.height
-            appInfoDescriptionButton.setTitle("접기", for: .normal)
             isDescriptionOpenView = true
         }
-        
     }
-    
-    
-    
+
     
     // 메인 스크롤 위치에 따른 mini view
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

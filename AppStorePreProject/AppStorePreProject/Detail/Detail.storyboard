@@ -587,7 +587,6 @@
                                                             <constraint firstAttribute="trailing" secondItem="R3K-TF-zMg" secondAttribute="trailing" constant="20" id="1zW-wq-WtT"/>
                                                             <constraint firstAttribute="bottom" secondItem="R3K-TF-zMg" secondAttribute="bottom" constant="20" id="4gM-Zs-4bw"/>
                                                             <constraint firstAttribute="height" constant="130" id="ClR-TY-icj"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="130" id="SHr-yf-X5z"/>
                                                             <constraint firstItem="R3K-TF-zMg" firstAttribute="leading" secondItem="Kr5-6F-a7W" secondAttribute="trailing" constant="10" id="Viz-lS-NKa"/>
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Kr5-6F-a7W" secondAttribute="bottom" constant="20" id="WjA-DC-hKf"/>
                                                             <constraint firstItem="Kr5-6F-a7W" firstAttribute="leading" secondItem="VLp-Ym-M3B" secondAttribute="leading" constant="20" id="Wzr-JD-UT1"/>
